@@ -25,7 +25,7 @@ https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/lazy_group.conf
 - 添加自动切换延迟最低节点类型
 - 通过「代理分组」灵活调整流媒体分流策略
 
-规则地址：<https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/lazy_group.conf>
+规则地址：<https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/ss.conf>
 
 ![二维码](https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/figure/ss.png)
 

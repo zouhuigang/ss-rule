@@ -2,6 +2,19 @@
 https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/lazy_group.conf
 
 
+### 分流方法
+
+```log
+[Proxy Group]
+住宅IP = select,专属纯净静态住宅节点
+RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family_ip.list,住宅IP
+```
+代理的分组名称： 住宅IP
+分流方法： select，表示选择一个节点连接，比如当前选择的就是可以用来连接的“专属纯净静态住宅节点”。
+RULE-SET,表示里面的文件都走住宅IP这个分组，后面跟着规则文件地址和分组名称。
+
+
+
 ## 规则使用方法
 
 方法一：用 Safari 或 ShadowRocket 扫描二维码即可。  

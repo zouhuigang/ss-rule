@@ -27,5 +27,5 @@ https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/lazy_group.conf
 
 规则地址：<https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/lazy_group.conf>
 
-![二维码](https://zouhuigang.github.io/ss-rule/figure/ss.png)
+![二维码](https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/figure/ss.png)
 

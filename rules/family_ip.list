@@ -4,9 +4,18 @@
 
 # claude
 DOMAIN,cdn.usefathom.com
+DOMAIN,a-cdn.claude.ai
+DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,downloads.claude.ai
+DOMAIN-SUFFIX,platform.claude.com
 
 # ip125
 DOMAIN-SUFFIX,ip125.com

@@ -17,6 +17,10 @@ DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,downloads.claude.ai
 DOMAIN-SUFFIX,platform.claude.com
 
+# claude ip 官方公布的地址
+IP-CIDR,160.79.104.0/23,no-resolve
+IP-CIDR6,2607:6bc0::/48,no-resolve
+
 # ip125
 DOMAIN-SUFFIX,ip125.com
 

@@ -1,2 +1,8 @@
 DOMAIN-SUFFIX,lilybearing.com
 DOMAIN-SUFFIX,aliyun.com
+
+# Tailscale
+DOMAIN-SUFFIX,tailscale.com
+DOMAIN-SUFFIX,tailscale.io
+DOMAIN-SUFFIX,ts.net
+IP-CIDR,100.64.0.0/10,no-resolve

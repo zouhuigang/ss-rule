@@ -1,0 +1,22 @@
+######################
+##  Claude 走住宅IP  ##
+######################
+
+# claude
+DOMAIN,cdn.usefathom.com
+DOMAIN,a-cdn.claude.ai
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,downloads.claude.ai
+DOMAIN-SUFFIX,platform.claude.com
+
+# claude ip 官方公布的地址
+IP-CIDR,160.79.104.0/23,no-resolve
+IP-CIDR6,2607:6bc0::/48,no-resolve

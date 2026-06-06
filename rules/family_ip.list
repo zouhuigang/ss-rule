@@ -1,25 +1,7 @@
 ######################
 ## 需要走住宅IP的服务 ##
 #####################
-
-# claude
-DOMAIN,cdn.usefathom.com
-DOMAIN,a-cdn.claude.ai
-DOMAIN,servd-anthropic-website.b-cdn.net
-DOMAIN-SUFFIX,anthropic.com
-DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,claudeusercontent.com
-DOMAIN-SUFFIX,clau.de
-DOMAIN-SUFFIX,claude.com
-DOMAIN-SUFFIX,claude.site
-DOMAIN-SUFFIX,claudemcpclient.com
-DOMAIN-SUFFIX,claudemcpcontent.com
-DOMAIN-SUFFIX,downloads.claude.ai
-DOMAIN-SUFFIX,platform.claude.com
-
-# claude ip 官方公布的地址
-IP-CIDR,160.79.104.0/23,no-resolve
-IP-CIDR6,2607:6bc0::/48,no-resolve
+# Claude、ChatGPT 已拆分到 rules/family/ 下按服务独立分组，便于单独切换
 
 # ip125
 DOMAIN-SUFFIX,ip125.com
@@ -27,18 +9,3 @@ DOMAIN-SUFFIX,ip125.com
 # fast.com
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,nflxvideo.net
-
-# > ChatGPT
-DOMAIN-SUFFIX,chat.com
-DOMAIN-SUFFIX,chatgpt.com
-DOMAIN-SUFFIX,livekit.cloud
-DOMAIN-SUFFIX,oaistatic.com
-DOMAIN-SUFFIX,oaiusercontent.com
-DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,sora.com
-DOMAIN,api.statsig.com
-DOMAIN,api-iam.intercom.io
-DOMAIN,o33249.ingest.sentry.io
-DOMAIN,openaiapi-site.azureedge.net
-DOMAIN-KEYWORD,openaiapi
-DOMAIN-KEYWORD,openaicom

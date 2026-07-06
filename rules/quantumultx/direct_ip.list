@@ -1,0 +1,12 @@
+# 直连规则（Quantumult X 原生格式，由 rules/direct/direct_ip.list 转换生成）
+# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，「策略偏好」可覆盖默认策略「DIRECT」
+
+HOST-SUFFIX,lilybearing.com,DIRECT
+HOST-SUFFIX,aliyun.com,DIRECT
+
+# Tailscale
+HOST-SUFFIX,tailscale.com,DIRECT
+HOST-SUFFIX,tailscale.io,DIRECT
+HOST-SUFFIX,ts.net,DIRECT
+IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+IP6-CIDR,fd7a:115c:a1e0::/48,DIRECT,no-resolve

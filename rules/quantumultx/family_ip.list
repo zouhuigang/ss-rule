@@ -1,0 +1,14 @@
+# 需要走住宅IP的其他服务（Quantumult X 原生格式，由 rules/family_ip.list 转换生成）
+# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，「策略偏好」可覆盖默认策略「住宅IP」
+
+######################
+## 需要走住宅IP的服务 ##
+#####################
+# Claude、ChatGPT 已拆分到 rules/family/ 下按服务独立分组，便于单独切换
+
+# ip125
+HOST-SUFFIX,ip125.com,住宅IP
+
+# fast.com
+HOST-SUFFIX,fast.com,住宅IP
+HOST-SUFFIX,nflxvideo.net,住宅IP

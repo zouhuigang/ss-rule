@@ -1,0 +1,61 @@
+# 需要走代理的 AI 服务（Quantumult X 原生格式，由 rules/proxy/AI.list 转换生成）
+# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，「策略偏好」可覆盖默认策略「代理IP」
+
+######################
+##  需要走代理的服务  ##
+#####################
+
+# > Apple Intelligence
+HOST-SUFFIX,smoot.apple.com,代理IP
+HOST,apple-relay.apple.com,代理IP
+HOST,apple-relay.cloudflare.com,代理IP
+HOST,apple-relay.fastly-edge.com,代理IP
+HOST,cp4.cloudflare.com,代理IP
+HOST,gspe1-ssl.ls.apple.com,代理IP
+HOST,guzzoni.apple.com,代理IP
+
+
+# > Microsoft Copilot
+HOST,copilot.microsoft.com,代理IP
+HOST,sydney.bing.com,代理IP
+HOST,www.bing.com,代理IP
+# > GitHub Copilot
+HOST-SUFFIX,githubcopilot.com,代理IP
+
+# > Google
+# > > AI Studio
+HOST-SUFFIX,generativeai.google,代理IP
+HOST-SUFFIX,makersuite.google.com,代理IP
+HOST,aistudio.google.com,代理IP
+HOST,alkalicore-pa.clients6.google.com,代理IP
+HOST,alkalimakersuite-pa.clients6.google.com,代理IP
+# > > Antigravity
+HOST,antigravity.google,代理IP
+HOST,antigravity-unleash.goog,代理IP
+# > > DeepMind
+HOST-SUFFIX,deepmind.com,代理IP
+HOST-SUFFIX,deepmind.google,代理IP
+# > > Gemini
+HOST-SUFFIX,proactivebackend-pa.googleapis.com,代理IP
+HOST-SUFFIX,geller-pa.googleapis.com,代理IP
+HOST-SUFFIX,generativelanguage.googleapis.com,代理IP
+HOST,ai.google.dev,代理IP
+HOST,bard.google.com,代理IP
+HOST,gemini.google.com,代理IP
+# > > NotebookLM
+HOST-KEYWORD,notebooklm.google,代理IP
+# > > Search Labs
+HOST-KEYWORD,labs.google,代理IP
+
+# > Grok
+HOST-SUFFIX,grok.com,代理IP
+HOST-SUFFIX,x.ai,代理IP
+HOST-SUFFIX,x.com,代理IP
+
+# > OpenRouter
+HOST-SUFFIX,openrouter.ai,代理IP
+
+# > Perplexity
+HOST-SUFFIX,perplexity.ai,代理IP
+HOST-SUFFIX,pplx.ai,代理IP
+HOST,pplx-res.cloudinary.com,代理IP

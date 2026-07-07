@@ -1,0 +1,21 @@
+# ChatGPT 走住宅IP（Quantumult X 原生格式，由 rules/family/ChatGPT.list 转换生成）
+# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，「策略偏好」可覆盖默认策略「ChatGPT」
+
+#######################
+##  ChatGPT 走住宅IP  ##
+#######################
+
+# > ChatGPT
+HOST-SUFFIX,chat.com,ChatGPT
+HOST-SUFFIX,chatgpt.com,ChatGPT
+HOST-SUFFIX,livekit.cloud,ChatGPT
+HOST-SUFFIX,oaistatic.com,ChatGPT
+HOST-SUFFIX,oaiusercontent.com,ChatGPT
+HOST-SUFFIX,openai.com,ChatGPT
+HOST-SUFFIX,sora.com,ChatGPT
+HOST,api.statsig.com,ChatGPT
+HOST,api-iam.intercom.io,ChatGPT
+HOST,o33249.ingest.sentry.io,ChatGPT
+HOST,openaiapi-site.azureedge.net,ChatGPT
+HOST-KEYWORD,openaiapi,ChatGPT
+HOST-KEYWORD,openaicom,ChatGPT

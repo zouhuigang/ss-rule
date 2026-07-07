@@ -1,0 +1,25 @@
+# Claude 走住宅IP（Quantumult X 原生格式，由 rules/family/Claude.list 转换生成）
+# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，「策略偏好」可覆盖默认策略「Claude」
+
+######################
+##  Claude 走住宅IP  ##
+######################
+
+# claude
+HOST,cdn.usefathom.com,Claude
+HOST,a-cdn.claude.ai,Claude
+HOST,servd-anthropic-website.b-cdn.net,Claude
+HOST-SUFFIX,anthropic.com,Claude
+HOST-SUFFIX,claude.ai,Claude
+HOST-SUFFIX,claudeusercontent.com,Claude
+HOST-SUFFIX,clau.de,Claude
+HOST-SUFFIX,claude.com,Claude
+HOST-SUFFIX,claude.site,Claude
+HOST-SUFFIX,claudemcpclient.com,Claude
+HOST-SUFFIX,claudemcpcontent.com,Claude
+HOST-SUFFIX,downloads.claude.ai,Claude
+HOST-SUFFIX,platform.claude.com,Claude
+
+# claude ip 官方公布的地址
+IP-CIDR,160.79.104.0/23,Claude,no-resolve
+IP6-CIDR,2607:6bc0::/48,Claude,no-resolve

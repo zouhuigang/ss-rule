@@ -6,16 +6,16 @@
 #######################
 
 # > ChatGPT
-HOST-SUFFIX,chat.com,ChatGPT
-HOST-SUFFIX,chatgpt.com,ChatGPT
-HOST-SUFFIX,livekit.cloud,ChatGPT
-HOST-SUFFIX,oaistatic.com,ChatGPT
-HOST-SUFFIX,oaiusercontent.com,ChatGPT
-HOST-SUFFIX,openai.com,ChatGPT
-HOST-SUFFIX,sora.com,ChatGPT
-HOST,api.statsig.com,ChatGPT
-HOST,api-iam.intercom.io,ChatGPT
-HOST,o33249.ingest.sentry.io,ChatGPT
-HOST,openaiapi-site.azureedge.net,ChatGPT
-HOST-KEYWORD,openaiapi,ChatGPT
-HOST-KEYWORD,openaicom,ChatGPT
+HOST-SUFFIX,chat.com,住宅节点
+HOST-SUFFIX,chatgpt.com,住宅节点
+HOST-SUFFIX,livekit.cloud,住宅节点
+HOST-SUFFIX,oaistatic.com,住宅节点
+HOST-SUFFIX,oaiusercontent.com,住宅节点
+HOST-SUFFIX,openai.com,住宅节点
+HOST-SUFFIX,sora.com,住宅节点
+HOST,api.statsig.com,住宅节点
+HOST,api-iam.intercom.io,住宅节点
+HOST,o33249.ingest.sentry.io,住宅节点
+HOST,openaiapi-site.azureedge.net,住宅节点
+HOST-KEYWORD,openaiapi,住宅节点
+HOST-KEYWORD,openaicom,住宅节点

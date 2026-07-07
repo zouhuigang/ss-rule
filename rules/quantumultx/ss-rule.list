@@ -6,12 +6,12 @@
 ##  ⚠️ 不要设置「策略偏好」！本文件每行自带策略，策略偏好会把它们全部覆盖掉
 ##
 ##  需要你的 QX [policy] 里存在以下策略组（名称须一致，或自行批量改名）：
-##    Claude / ChatGPT / 住宅IP / 代理IP / Max
+##    住宅节点 / 代理节点（2026-07-07 精简：只这两组）
 ##  direct、proxy、reject 为内置策略，无需创建
 ##
 ##  资源排序建议：本文件放在所有分流引用的【最上面】
 ##  （blackmatrix7 的 Global.list 也含 anthropic/claude/openai 域名，
-##    本文件必须先于它匹配，Claude/ChatGPT 才能走住宅IP）
+##    本文件必须先于它匹配，Claude/ChatGPT 才能走住宅节点）
 ##  GEOIP,CN 和 FINAL 兜底请留在你配置的 [filter_local] 里（本地分流本来就最后匹配）
 #########################################################
 
@@ -33,30 +33,30 @@ HOST-SUFFIX,ghcr.io,proxy
 HOST-KEYWORD,github,proxy
 
 # ================================================================
-# 3. Claude 走住宅IP（按服务独立分组，被封时单独切换 Claude 策略组）
+# 3. Claude 走住宅IP（住宅节点组）
 # ================================================================
 ######################
 ##  Claude 走住宅IP  ##
 ######################
 
 # claude
-HOST,cdn.usefathom.com,Claude
-HOST,a-cdn.claude.ai,Claude
-HOST,servd-anthropic-website.b-cdn.net,Claude
-HOST-SUFFIX,anthropic.com,Claude
-HOST-SUFFIX,claude.ai,Claude
-HOST-SUFFIX,claudeusercontent.com,Claude
-HOST-SUFFIX,clau.de,Claude
-HOST-SUFFIX,claude.com,Claude
-HOST-SUFFIX,claude.site,Claude
-HOST-SUFFIX,claudemcpclient.com,Claude
-HOST-SUFFIX,claudemcpcontent.com,Claude
-HOST-SUFFIX,downloads.claude.ai,Claude
-HOST-SUFFIX,platform.claude.com,Claude
+HOST,cdn.usefathom.com,住宅节点
+HOST,a-cdn.claude.ai,住宅节点
+HOST,servd-anthropic-website.b-cdn.net,住宅节点
+HOST-SUFFIX,anthropic.com,住宅节点
+HOST-SUFFIX,claude.ai,住宅节点
+HOST-SUFFIX,claudeusercontent.com,住宅节点
+HOST-SUFFIX,clau.de,住宅节点
+HOST-SUFFIX,claude.com,住宅节点
+HOST-SUFFIX,claude.site,住宅节点
+HOST-SUFFIX,claudemcpclient.com,住宅节点
+HOST-SUFFIX,claudemcpcontent.com,住宅节点
+HOST-SUFFIX,downloads.claude.ai,住宅节点
+HOST-SUFFIX,platform.claude.com,住宅节点
 
 # claude ip 官方公布的地址
-IP-CIDR,160.79.104.0/23,Claude,no-resolve
-IP6-CIDR,2607:6bc0::/48,Claude,no-resolve
+IP-CIDR,160.79.104.0/23,住宅节点,no-resolve
+IP6-CIDR,2607:6bc0::/48,住宅节点,no-resolve
 
 # ================================================================
 # 4. ChatGPT 走住宅IP
@@ -66,19 +66,19 @@ IP6-CIDR,2607:6bc0::/48,Claude,no-resolve
 #######################
 
 # > ChatGPT
-HOST-SUFFIX,chat.com,ChatGPT
-HOST-SUFFIX,chatgpt.com,ChatGPT
-HOST-SUFFIX,livekit.cloud,ChatGPT
-HOST-SUFFIX,oaistatic.com,ChatGPT
-HOST-SUFFIX,oaiusercontent.com,ChatGPT
-HOST-SUFFIX,openai.com,ChatGPT
-HOST-SUFFIX,sora.com,ChatGPT
-HOST,api.statsig.com,ChatGPT
-HOST,api-iam.intercom.io,ChatGPT
-HOST,o33249.ingest.sentry.io,ChatGPT
-HOST,openaiapi-site.azureedge.net,ChatGPT
-HOST-KEYWORD,openaiapi,ChatGPT
-HOST-KEYWORD,openaicom,ChatGPT
+HOST-SUFFIX,chat.com,住宅节点
+HOST-SUFFIX,chatgpt.com,住宅节点
+HOST-SUFFIX,livekit.cloud,住宅节点
+HOST-SUFFIX,oaistatic.com,住宅节点
+HOST-SUFFIX,oaiusercontent.com,住宅节点
+HOST-SUFFIX,openai.com,住宅节点
+HOST-SUFFIX,sora.com,住宅节点
+HOST,api.statsig.com,住宅节点
+HOST,api-iam.intercom.io,住宅节点
+HOST,o33249.ingest.sentry.io,住宅节点
+HOST,openaiapi-site.azureedge.net,住宅节点
+HOST-KEYWORD,openaiapi,住宅节点
+HOST-KEYWORD,openaicom,住宅节点
 
 # ================================================================
 # 5. 其余需要住宅IP的杂项（ip125、fast.com 等）
@@ -86,14 +86,14 @@ HOST-KEYWORD,openaicom,ChatGPT
 ######################
 ## 需要走住宅IP的服务 ##
 #####################
-# Claude、ChatGPT 已拆分到 rules/family/ 下按服务独立分组，便于单独切换
+# Claude、ChatGPT 的域名清单在 rules/family/ 下维护
 
 # ip125
-HOST-SUFFIX,ip125.com,住宅IP
+HOST-SUFFIX,ip125.com,住宅节点
 
 # fast.com
-HOST-SUFFIX,fast.com,住宅IP
-HOST-SUFFIX,nflxvideo.net,住宅IP
+HOST-SUFFIX,fast.com,住宅节点
+HOST-SUFFIX,nflxvideo.net,住宅节点
 
 # ================================================================
 # 6. AI 服务走代理（Gemini/Grok/Copilot/Perplexity 等）
@@ -103,59 +103,59 @@ HOST-SUFFIX,nflxvideo.net,住宅IP
 #####################
 
 # > Apple Intelligence
-HOST-SUFFIX,smoot.apple.com,代理IP
-HOST,apple-relay.apple.com,代理IP
-HOST,apple-relay.cloudflare.com,代理IP
-HOST,apple-relay.fastly-edge.com,代理IP
-HOST,cp4.cloudflare.com,代理IP
-HOST,gspe1-ssl.ls.apple.com,代理IP
-HOST,guzzoni.apple.com,代理IP
+HOST-SUFFIX,smoot.apple.com,代理节点
+HOST,apple-relay.apple.com,代理节点
+HOST,apple-relay.cloudflare.com,代理节点
+HOST,apple-relay.fastly-edge.com,代理节点
+HOST,cp4.cloudflare.com,代理节点
+HOST,gspe1-ssl.ls.apple.com,代理节点
+HOST,guzzoni.apple.com,代理节点
 
 
 # > Microsoft Copilot
-HOST,copilot.microsoft.com,代理IP
-HOST,sydney.bing.com,代理IP
-HOST,www.bing.com,代理IP
+HOST,copilot.microsoft.com,代理节点
+HOST,sydney.bing.com,代理节点
+HOST,www.bing.com,代理节点
 # > GitHub Copilot
-HOST-SUFFIX,githubcopilot.com,代理IP
+HOST-SUFFIX,githubcopilot.com,代理节点
 
 # > Google
 # > > AI Studio
-HOST-SUFFIX,generativeai.google,代理IP
-HOST-SUFFIX,makersuite.google.com,代理IP
-HOST,aistudio.google.com,代理IP
-HOST,alkalicore-pa.clients6.google.com,代理IP
-HOST,alkalimakersuite-pa.clients6.google.com,代理IP
+HOST-SUFFIX,generativeai.google,代理节点
+HOST-SUFFIX,makersuite.google.com,代理节点
+HOST,aistudio.google.com,代理节点
+HOST,alkalicore-pa.clients6.google.com,代理节点
+HOST,alkalimakersuite-pa.clients6.google.com,代理节点
 # > > Antigravity
-HOST,antigravity.google,代理IP
-HOST,antigravity-unleash.goog,代理IP
+HOST,antigravity.google,代理节点
+HOST,antigravity-unleash.goog,代理节点
 # > > DeepMind
-HOST-SUFFIX,deepmind.com,代理IP
-HOST-SUFFIX,deepmind.google,代理IP
+HOST-SUFFIX,deepmind.com,代理节点
+HOST-SUFFIX,deepmind.google,代理节点
 # > > Gemini
-HOST-SUFFIX,proactivebackend-pa.googleapis.com,代理IP
-HOST-SUFFIX,geller-pa.googleapis.com,代理IP
-HOST-SUFFIX,generativelanguage.googleapis.com,代理IP
-HOST,ai.google.dev,代理IP
-HOST,bard.google.com,代理IP
-HOST,gemini.google.com,代理IP
+HOST-SUFFIX,proactivebackend-pa.googleapis.com,代理节点
+HOST-SUFFIX,geller-pa.googleapis.com,代理节点
+HOST-SUFFIX,generativelanguage.googleapis.com,代理节点
+HOST,ai.google.dev,代理节点
+HOST,bard.google.com,代理节点
+HOST,gemini.google.com,代理节点
 # > > NotebookLM
-HOST-KEYWORD,notebooklm.google,代理IP
+HOST-KEYWORD,notebooklm.google,代理节点
 # > > Search Labs
-HOST-KEYWORD,labs.google,代理IP
+HOST-KEYWORD,labs.google,代理节点
 
 # > Grok
-HOST-SUFFIX,grok.com,代理IP
-HOST-SUFFIX,x.ai,代理IP
-HOST-SUFFIX,x.com,代理IP
+HOST-SUFFIX,grok.com,代理节点
+HOST-SUFFIX,x.ai,代理节点
+HOST-SUFFIX,x.com,代理节点
 
 # > OpenRouter
-HOST-SUFFIX,openrouter.ai,代理IP
+HOST-SUFFIX,openrouter.ai,代理节点
 
 # > Perplexity
-HOST-SUFFIX,perplexity.ai,代理IP
-HOST-SUFFIX,pplx.ai,代理IP
-HOST,pplx-res.cloudinary.com,代理IP
+HOST-SUFFIX,perplexity.ai,代理节点
+HOST-SUFFIX,pplx.ai,代理节点
+HOST,pplx-res.cloudinary.com,代理节点
 
 # ================================================================
 # 7. YouTube 走代理
@@ -169,203 +169,203 @@ HOST,pplx-res.cloudinary.com,代理IP
 # IP-CIDR: 3
 # USER-AGENT: 7
 # TOTAL: 190
-HOST-SUFFIX,ggpht.cn,代理IP
-HOST-SUFFIX,ggpht.com,代理IP
-HOST-SUFFIX,googlevideo.com,代理IP
-HOST-SUFFIX,gvt1.com,代理IP
-HOST-SUFFIX,gvt2.com,代理IP
-HOST-SUFFIX,video.google.com,代理IP
-HOST-SUFFIX,wide-youtube.l.google.com,代理IP
-HOST-SUFFIX,withyoutube.com,代理IP
-HOST-SUFFIX,youtu.be,代理IP
-HOST-SUFFIX,youtube,代理IP
-HOST-SUFFIX,youtube-nocookie.com,代理IP
-HOST-SUFFIX,youtube-ui.l.google.com,代理IP
-HOST-SUFFIX,youtube.ae,代理IP
-HOST-SUFFIX,youtube.al,代理IP
-HOST-SUFFIX,youtube.am,代理IP
-HOST-SUFFIX,youtube.at,代理IP
-HOST-SUFFIX,youtube.az,代理IP
-HOST-SUFFIX,youtube.ba,代理IP
-HOST-SUFFIX,youtube.be,代理IP
-HOST-SUFFIX,youtube.bg,代理IP
-HOST-SUFFIX,youtube.bh,代理IP
-HOST-SUFFIX,youtube.bo,代理IP
-HOST-SUFFIX,youtube.by,代理IP
-HOST-SUFFIX,youtube.ca,代理IP
-HOST-SUFFIX,youtube.cat,代理IP
-HOST-SUFFIX,youtube.ch,代理IP
-HOST-SUFFIX,youtube.cl,代理IP
-HOST-SUFFIX,youtube.co,代理IP
-HOST-SUFFIX,youtube.co.ae,代理IP
-HOST-SUFFIX,youtube.co.at,代理IP
-HOST-SUFFIX,youtube.co.cr,代理IP
-HOST-SUFFIX,youtube.co.hu,代理IP
-HOST-SUFFIX,youtube.co.id,代理IP
-HOST-SUFFIX,youtube.co.il,代理IP
-HOST-SUFFIX,youtube.co.in,代理IP
-HOST-SUFFIX,youtube.co.jp,代理IP
-HOST-SUFFIX,youtube.co.ke,代理IP
-HOST-SUFFIX,youtube.co.kr,代理IP
-HOST-SUFFIX,youtube.co.ma,代理IP
-HOST-SUFFIX,youtube.co.nz,代理IP
-HOST-SUFFIX,youtube.co.th,代理IP
-HOST-SUFFIX,youtube.co.tz,代理IP
-HOST-SUFFIX,youtube.co.ug,代理IP
-HOST-SUFFIX,youtube.co.uk,代理IP
-HOST-SUFFIX,youtube.co.ve,代理IP
-HOST-SUFFIX,youtube.co.za,代理IP
-HOST-SUFFIX,youtube.co.zw,代理IP
-HOST-SUFFIX,youtube.com,代理IP
-HOST-SUFFIX,youtube.com.ar,代理IP
-HOST-SUFFIX,youtube.com.au,代理IP
-HOST-SUFFIX,youtube.com.az,代理IP
-HOST-SUFFIX,youtube.com.bd,代理IP
-HOST-SUFFIX,youtube.com.bh,代理IP
-HOST-SUFFIX,youtube.com.bo,代理IP
-HOST-SUFFIX,youtube.com.br,代理IP
-HOST-SUFFIX,youtube.com.by,代理IP
-HOST-SUFFIX,youtube.com.co,代理IP
-HOST-SUFFIX,youtube.com.do,代理IP
-HOST-SUFFIX,youtube.com.ec,代理IP
-HOST-SUFFIX,youtube.com.ee,代理IP
-HOST-SUFFIX,youtube.com.eg,代理IP
-HOST-SUFFIX,youtube.com.es,代理IP
-HOST-SUFFIX,youtube.com.gh,代理IP
-HOST-SUFFIX,youtube.com.gr,代理IP
-HOST-SUFFIX,youtube.com.gt,代理IP
-HOST-SUFFIX,youtube.com.hk,代理IP
-HOST-SUFFIX,youtube.com.hn,代理IP
-HOST-SUFFIX,youtube.com.hr,代理IP
-HOST-SUFFIX,youtube.com.jm,代理IP
-HOST-SUFFIX,youtube.com.jo,代理IP
-HOST-SUFFIX,youtube.com.kw,代理IP
-HOST-SUFFIX,youtube.com.lb,代理IP
-HOST-SUFFIX,youtube.com.lv,代理IP
-HOST-SUFFIX,youtube.com.ly,代理IP
-HOST-SUFFIX,youtube.com.mk,代理IP
-HOST-SUFFIX,youtube.com.mt,代理IP
-HOST-SUFFIX,youtube.com.mx,代理IP
-HOST-SUFFIX,youtube.com.my,代理IP
-HOST-SUFFIX,youtube.com.ng,代理IP
-HOST-SUFFIX,youtube.com.ni,代理IP
-HOST-SUFFIX,youtube.com.om,代理IP
-HOST-SUFFIX,youtube.com.pa,代理IP
-HOST-SUFFIX,youtube.com.pe,代理IP
-HOST-SUFFIX,youtube.com.ph,代理IP
-HOST-SUFFIX,youtube.com.pk,代理IP
-HOST-SUFFIX,youtube.com.pt,代理IP
-HOST-SUFFIX,youtube.com.py,代理IP
-HOST-SUFFIX,youtube.com.qa,代理IP
-HOST-SUFFIX,youtube.com.ro,代理IP
-HOST-SUFFIX,youtube.com.sa,代理IP
-HOST-SUFFIX,youtube.com.sg,代理IP
-HOST-SUFFIX,youtube.com.sv,代理IP
-HOST-SUFFIX,youtube.com.tn,代理IP
-HOST-SUFFIX,youtube.com.tr,代理IP
-HOST-SUFFIX,youtube.com.tw,代理IP
-HOST-SUFFIX,youtube.com.ua,代理IP
-HOST-SUFFIX,youtube.com.uy,代理IP
-HOST-SUFFIX,youtube.com.ve,代理IP
-HOST-SUFFIX,youtube.cr,代理IP
-HOST-SUFFIX,youtube.cz,代理IP
-HOST-SUFFIX,youtube.de,代理IP
-HOST-SUFFIX,youtube.dk,代理IP
-HOST-SUFFIX,youtube.ee,代理IP
-HOST-SUFFIX,youtube.es,代理IP
-HOST-SUFFIX,youtube.fi,代理IP
-HOST-SUFFIX,youtube.fr,代理IP
-HOST-SUFFIX,youtube.ge,代理IP
-HOST-SUFFIX,youtube.googleapis.com,代理IP
-HOST-SUFFIX,youtube.gr,代理IP
-HOST-SUFFIX,youtube.gt,代理IP
-HOST-SUFFIX,youtube.hk,代理IP
-HOST-SUFFIX,youtube.hr,代理IP
-HOST-SUFFIX,youtube.hu,代理IP
-HOST-SUFFIX,youtube.ie,代理IP
-HOST-SUFFIX,youtube.in,代理IP
-HOST-SUFFIX,youtube.iq,代理IP
-HOST-SUFFIX,youtube.is,代理IP
-HOST-SUFFIX,youtube.it,代理IP
-HOST-SUFFIX,youtube.jo,代理IP
-HOST-SUFFIX,youtube.jp,代理IP
-HOST-SUFFIX,youtube.kr,代理IP
-HOST-SUFFIX,youtube.kz,代理IP
-HOST-SUFFIX,youtube.la,代理IP
-HOST-SUFFIX,youtube.lk,代理IP
-HOST-SUFFIX,youtube.lt,代理IP
-HOST-SUFFIX,youtube.lu,代理IP
-HOST-SUFFIX,youtube.lv,代理IP
-HOST-SUFFIX,youtube.ly,代理IP
-HOST-SUFFIX,youtube.ma,代理IP
-HOST-SUFFIX,youtube.md,代理IP
-HOST-SUFFIX,youtube.me,代理IP
-HOST-SUFFIX,youtube.mk,代理IP
-HOST-SUFFIX,youtube.mn,代理IP
-HOST-SUFFIX,youtube.mx,代理IP
-HOST-SUFFIX,youtube.my,代理IP
-HOST-SUFFIX,youtube.ng,代理IP
-HOST-SUFFIX,youtube.ni,代理IP
-HOST-SUFFIX,youtube.nl,代理IP
-HOST-SUFFIX,youtube.no,代理IP
-HOST-SUFFIX,youtube.pa,代理IP
-HOST-SUFFIX,youtube.pe,代理IP
-HOST-SUFFIX,youtube.ph,代理IP
-HOST-SUFFIX,youtube.pk,代理IP
-HOST-SUFFIX,youtube.pl,代理IP
-HOST-SUFFIX,youtube.pr,代理IP
-HOST-SUFFIX,youtube.pt,代理IP
-HOST-SUFFIX,youtube.qa,代理IP
-HOST-SUFFIX,youtube.ro,代理IP
-HOST-SUFFIX,youtube.rs,代理IP
-HOST-SUFFIX,youtube.ru,代理IP
-HOST-SUFFIX,youtube.sa,代理IP
-HOST-SUFFIX,youtube.se,代理IP
-HOST-SUFFIX,youtube.sg,代理IP
-HOST-SUFFIX,youtube.si,代理IP
-HOST-SUFFIX,youtube.sk,代理IP
-HOST-SUFFIX,youtube.sn,代理IP
-HOST-SUFFIX,youtube.soy,代理IP
-HOST-SUFFIX,youtube.sv,代理IP
-HOST-SUFFIX,youtube.tn,代理IP
-HOST-SUFFIX,youtube.tv,代理IP
-HOST-SUFFIX,youtube.ua,代理IP
-HOST-SUFFIX,youtube.ug,代理IP
-HOST-SUFFIX,youtube.uy,代理IP
-HOST-SUFFIX,youtube.vn,代理IP
-HOST-SUFFIX,youtubeeducation.com,代理IP
-HOST-SUFFIX,youtubeembeddedplayer.googleapis.com,代理IP
-HOST-SUFFIX,youtubefanfest.com,代理IP
-HOST-SUFFIX,youtubegaming.com,代理IP
-HOST-SUFFIX,youtubego.co.id,代理IP
-HOST-SUFFIX,youtubego.co.in,代理IP
-HOST-SUFFIX,youtubego.com,代理IP
-HOST-SUFFIX,youtubego.com.br,代理IP
-HOST-SUFFIX,youtubego.id,代理IP
-HOST-SUFFIX,youtubego.in,代理IP
-HOST-SUFFIX,youtubei.googleapis.com,代理IP
-HOST-SUFFIX,youtubekids.com,代理IP
-HOST-SUFFIX,youtubemobilesupport.com,代理IP
-HOST-SUFFIX,yt.be,代理IP
-HOST-SUFFIX,ytimg.com,代理IP
-HOST-KEYWORD,youtube,代理IP
-USER-AGENT,*YouTubeMusic*,代理IP
-USER-AGENT,*com.google.ios.youtubemusic*,代理IP
-USER-AGENT,*youtube*,代理IP
-USER-AGENT,YouTube*,代理IP
-USER-AGENT,YouTubeMusic*,代理IP
-USER-AGENT,com.google.ios.youtube*,代理IP
-USER-AGENT,com.google.ios.youtubemusic*,代理IP
-IP-CIDR,172.110.32.0/21,代理IP,no-resolve
-IP-CIDR,216.73.80.0/20,代理IP,no-resolve
-IP6-CIDR,2620:120:e000::/40,代理IP,no-resolve
+HOST-SUFFIX,ggpht.cn,代理节点
+HOST-SUFFIX,ggpht.com,代理节点
+HOST-SUFFIX,googlevideo.com,代理节点
+HOST-SUFFIX,gvt1.com,代理节点
+HOST-SUFFIX,gvt2.com,代理节点
+HOST-SUFFIX,video.google.com,代理节点
+HOST-SUFFIX,wide-youtube.l.google.com,代理节点
+HOST-SUFFIX,withyoutube.com,代理节点
+HOST-SUFFIX,youtu.be,代理节点
+HOST-SUFFIX,youtube,代理节点
+HOST-SUFFIX,youtube-nocookie.com,代理节点
+HOST-SUFFIX,youtube-ui.l.google.com,代理节点
+HOST-SUFFIX,youtube.ae,代理节点
+HOST-SUFFIX,youtube.al,代理节点
+HOST-SUFFIX,youtube.am,代理节点
+HOST-SUFFIX,youtube.at,代理节点
+HOST-SUFFIX,youtube.az,代理节点
+HOST-SUFFIX,youtube.ba,代理节点
+HOST-SUFFIX,youtube.be,代理节点
+HOST-SUFFIX,youtube.bg,代理节点
+HOST-SUFFIX,youtube.bh,代理节点
+HOST-SUFFIX,youtube.bo,代理节点
+HOST-SUFFIX,youtube.by,代理节点
+HOST-SUFFIX,youtube.ca,代理节点
+HOST-SUFFIX,youtube.cat,代理节点
+HOST-SUFFIX,youtube.ch,代理节点
+HOST-SUFFIX,youtube.cl,代理节点
+HOST-SUFFIX,youtube.co,代理节点
+HOST-SUFFIX,youtube.co.ae,代理节点
+HOST-SUFFIX,youtube.co.at,代理节点
+HOST-SUFFIX,youtube.co.cr,代理节点
+HOST-SUFFIX,youtube.co.hu,代理节点
+HOST-SUFFIX,youtube.co.id,代理节点
+HOST-SUFFIX,youtube.co.il,代理节点
+HOST-SUFFIX,youtube.co.in,代理节点
+HOST-SUFFIX,youtube.co.jp,代理节点
+HOST-SUFFIX,youtube.co.ke,代理节点
+HOST-SUFFIX,youtube.co.kr,代理节点
+HOST-SUFFIX,youtube.co.ma,代理节点
+HOST-SUFFIX,youtube.co.nz,代理节点
+HOST-SUFFIX,youtube.co.th,代理节点
+HOST-SUFFIX,youtube.co.tz,代理节点
+HOST-SUFFIX,youtube.co.ug,代理节点
+HOST-SUFFIX,youtube.co.uk,代理节点
+HOST-SUFFIX,youtube.co.ve,代理节点
+HOST-SUFFIX,youtube.co.za,代理节点
+HOST-SUFFIX,youtube.co.zw,代理节点
+HOST-SUFFIX,youtube.com,代理节点
+HOST-SUFFIX,youtube.com.ar,代理节点
+HOST-SUFFIX,youtube.com.au,代理节点
+HOST-SUFFIX,youtube.com.az,代理节点
+HOST-SUFFIX,youtube.com.bd,代理节点
+HOST-SUFFIX,youtube.com.bh,代理节点
+HOST-SUFFIX,youtube.com.bo,代理节点
+HOST-SUFFIX,youtube.com.br,代理节点
+HOST-SUFFIX,youtube.com.by,代理节点
+HOST-SUFFIX,youtube.com.co,代理节点
+HOST-SUFFIX,youtube.com.do,代理节点
+HOST-SUFFIX,youtube.com.ec,代理节点
+HOST-SUFFIX,youtube.com.ee,代理节点
+HOST-SUFFIX,youtube.com.eg,代理节点
+HOST-SUFFIX,youtube.com.es,代理节点
+HOST-SUFFIX,youtube.com.gh,代理节点
+HOST-SUFFIX,youtube.com.gr,代理节点
+HOST-SUFFIX,youtube.com.gt,代理节点
+HOST-SUFFIX,youtube.com.hk,代理节点
+HOST-SUFFIX,youtube.com.hn,代理节点
+HOST-SUFFIX,youtube.com.hr,代理节点
+HOST-SUFFIX,youtube.com.jm,代理节点
+HOST-SUFFIX,youtube.com.jo,代理节点
+HOST-SUFFIX,youtube.com.kw,代理节点
+HOST-SUFFIX,youtube.com.lb,代理节点
+HOST-SUFFIX,youtube.com.lv,代理节点
+HOST-SUFFIX,youtube.com.ly,代理节点
+HOST-SUFFIX,youtube.com.mk,代理节点
+HOST-SUFFIX,youtube.com.mt,代理节点
+HOST-SUFFIX,youtube.com.mx,代理节点
+HOST-SUFFIX,youtube.com.my,代理节点
+HOST-SUFFIX,youtube.com.ng,代理节点
+HOST-SUFFIX,youtube.com.ni,代理节点
+HOST-SUFFIX,youtube.com.om,代理节点
+HOST-SUFFIX,youtube.com.pa,代理节点
+HOST-SUFFIX,youtube.com.pe,代理节点
+HOST-SUFFIX,youtube.com.ph,代理节点
+HOST-SUFFIX,youtube.com.pk,代理节点
+HOST-SUFFIX,youtube.com.pt,代理节点
+HOST-SUFFIX,youtube.com.py,代理节点
+HOST-SUFFIX,youtube.com.qa,代理节点
+HOST-SUFFIX,youtube.com.ro,代理节点
+HOST-SUFFIX,youtube.com.sa,代理节点
+HOST-SUFFIX,youtube.com.sg,代理节点
+HOST-SUFFIX,youtube.com.sv,代理节点
+HOST-SUFFIX,youtube.com.tn,代理节点
+HOST-SUFFIX,youtube.com.tr,代理节点
+HOST-SUFFIX,youtube.com.tw,代理节点
+HOST-SUFFIX,youtube.com.ua,代理节点
+HOST-SUFFIX,youtube.com.uy,代理节点
+HOST-SUFFIX,youtube.com.ve,代理节点
+HOST-SUFFIX,youtube.cr,代理节点
+HOST-SUFFIX,youtube.cz,代理节点
+HOST-SUFFIX,youtube.de,代理节点
+HOST-SUFFIX,youtube.dk,代理节点
+HOST-SUFFIX,youtube.ee,代理节点
+HOST-SUFFIX,youtube.es,代理节点
+HOST-SUFFIX,youtube.fi,代理节点
+HOST-SUFFIX,youtube.fr,代理节点
+HOST-SUFFIX,youtube.ge,代理节点
+HOST-SUFFIX,youtube.googleapis.com,代理节点
+HOST-SUFFIX,youtube.gr,代理节点
+HOST-SUFFIX,youtube.gt,代理节点
+HOST-SUFFIX,youtube.hk,代理节点
+HOST-SUFFIX,youtube.hr,代理节点
+HOST-SUFFIX,youtube.hu,代理节点
+HOST-SUFFIX,youtube.ie,代理节点
+HOST-SUFFIX,youtube.in,代理节点
+HOST-SUFFIX,youtube.iq,代理节点
+HOST-SUFFIX,youtube.is,代理节点
+HOST-SUFFIX,youtube.it,代理节点
+HOST-SUFFIX,youtube.jo,代理节点
+HOST-SUFFIX,youtube.jp,代理节点
+HOST-SUFFIX,youtube.kr,代理节点
+HOST-SUFFIX,youtube.kz,代理节点
+HOST-SUFFIX,youtube.la,代理节点
+HOST-SUFFIX,youtube.lk,代理节点
+HOST-SUFFIX,youtube.lt,代理节点
+HOST-SUFFIX,youtube.lu,代理节点
+HOST-SUFFIX,youtube.lv,代理节点
+HOST-SUFFIX,youtube.ly,代理节点
+HOST-SUFFIX,youtube.ma,代理节点
+HOST-SUFFIX,youtube.md,代理节点
+HOST-SUFFIX,youtube.me,代理节点
+HOST-SUFFIX,youtube.mk,代理节点
+HOST-SUFFIX,youtube.mn,代理节点
+HOST-SUFFIX,youtube.mx,代理节点
+HOST-SUFFIX,youtube.my,代理节点
+HOST-SUFFIX,youtube.ng,代理节点
+HOST-SUFFIX,youtube.ni,代理节点
+HOST-SUFFIX,youtube.nl,代理节点
+HOST-SUFFIX,youtube.no,代理节点
+HOST-SUFFIX,youtube.pa,代理节点
+HOST-SUFFIX,youtube.pe,代理节点
+HOST-SUFFIX,youtube.ph,代理节点
+HOST-SUFFIX,youtube.pk,代理节点
+HOST-SUFFIX,youtube.pl,代理节点
+HOST-SUFFIX,youtube.pr,代理节点
+HOST-SUFFIX,youtube.pt,代理节点
+HOST-SUFFIX,youtube.qa,代理节点
+HOST-SUFFIX,youtube.ro,代理节点
+HOST-SUFFIX,youtube.rs,代理节点
+HOST-SUFFIX,youtube.ru,代理节点
+HOST-SUFFIX,youtube.sa,代理节点
+HOST-SUFFIX,youtube.se,代理节点
+HOST-SUFFIX,youtube.sg,代理节点
+HOST-SUFFIX,youtube.si,代理节点
+HOST-SUFFIX,youtube.sk,代理节点
+HOST-SUFFIX,youtube.sn,代理节点
+HOST-SUFFIX,youtube.soy,代理节点
+HOST-SUFFIX,youtube.sv,代理节点
+HOST-SUFFIX,youtube.tn,代理节点
+HOST-SUFFIX,youtube.tv,代理节点
+HOST-SUFFIX,youtube.ua,代理节点
+HOST-SUFFIX,youtube.ug,代理节点
+HOST-SUFFIX,youtube.uy,代理节点
+HOST-SUFFIX,youtube.vn,代理节点
+HOST-SUFFIX,youtubeeducation.com,代理节点
+HOST-SUFFIX,youtubeembeddedplayer.googleapis.com,代理节点
+HOST-SUFFIX,youtubefanfest.com,代理节点
+HOST-SUFFIX,youtubegaming.com,代理节点
+HOST-SUFFIX,youtubego.co.id,代理节点
+HOST-SUFFIX,youtubego.co.in,代理节点
+HOST-SUFFIX,youtubego.com,代理节点
+HOST-SUFFIX,youtubego.com.br,代理节点
+HOST-SUFFIX,youtubego.id,代理节点
+HOST-SUFFIX,youtubego.in,代理节点
+HOST-SUFFIX,youtubei.googleapis.com,代理节点
+HOST-SUFFIX,youtubekids.com,代理节点
+HOST-SUFFIX,youtubemobilesupport.com,代理节点
+HOST-SUFFIX,yt.be,代理节点
+HOST-SUFFIX,ytimg.com,代理节点
+HOST-KEYWORD,youtube,代理节点
+USER-AGENT,*YouTubeMusic*,代理节点
+USER-AGENT,*com.google.ios.youtubemusic*,代理节点
+USER-AGENT,*youtube*,代理节点
+USER-AGENT,YouTube*,代理节点
+USER-AGENT,YouTubeMusic*,代理节点
+USER-AGENT,com.google.ios.youtube*,代理节点
+USER-AGENT,com.google.ios.youtubemusic*,代理节点
+IP-CIDR,172.110.32.0/21,代理节点,no-resolve
+IP-CIDR,216.73.80.0/20,代理节点,no-resolve
+IP6-CIDR,2620:120:e000::/40,代理节点,no-resolve
 
 # ================================================================
 # 8. Max（HBO）补充域名
 # ================================================================
-HOST-SUFFIX,litix.io,Max
-HOST-SUFFIX,discomax.com,Max
-HOST-SUFFIX,brightline.tv,Max
+HOST-SUFFIX,litix.io,代理节点
+HOST-SUFFIX,discomax.com,代理节点
+HOST-SUFFIX,brightline.tv,代理节点
 
 # ================================================================
 # 9. 苹果私有 TLD 直接拒绝，避免触发 5 秒 DNS 超时

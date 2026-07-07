@@ -6,20 +6,20 @@
 ######################
 
 # claude
-HOST,cdn.usefathom.com,Claude
-HOST,a-cdn.claude.ai,Claude
-HOST,servd-anthropic-website.b-cdn.net,Claude
-HOST-SUFFIX,anthropic.com,Claude
-HOST-SUFFIX,claude.ai,Claude
-HOST-SUFFIX,claudeusercontent.com,Claude
-HOST-SUFFIX,clau.de,Claude
-HOST-SUFFIX,claude.com,Claude
-HOST-SUFFIX,claude.site,Claude
-HOST-SUFFIX,claudemcpclient.com,Claude
-HOST-SUFFIX,claudemcpcontent.com,Claude
-HOST-SUFFIX,downloads.claude.ai,Claude
-HOST-SUFFIX,platform.claude.com,Claude
+HOST,cdn.usefathom.com,住宅节点
+HOST,a-cdn.claude.ai,住宅节点
+HOST,servd-anthropic-website.b-cdn.net,住宅节点
+HOST-SUFFIX,anthropic.com,住宅节点
+HOST-SUFFIX,claude.ai,住宅节点
+HOST-SUFFIX,claudeusercontent.com,住宅节点
+HOST-SUFFIX,clau.de,住宅节点
+HOST-SUFFIX,claude.com,住宅节点
+HOST-SUFFIX,claude.site,住宅节点
+HOST-SUFFIX,claudemcpclient.com,住宅节点
+HOST-SUFFIX,claudemcpcontent.com,住宅节点
+HOST-SUFFIX,downloads.claude.ai,住宅节点
+HOST-SUFFIX,platform.claude.com,住宅节点
 
 # claude ip 官方公布的地址
-IP-CIDR,160.79.104.0/23,Claude,no-resolve
-IP6-CIDR,2607:6bc0::/48,Claude,no-resolve
+IP-CIDR,160.79.104.0/23,住宅节点,no-resolve
+IP6-CIDR,2607:6bc0::/48,住宅节点,no-resolve

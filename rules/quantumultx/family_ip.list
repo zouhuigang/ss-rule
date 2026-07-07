@@ -7,8 +7,8 @@
 # Claude、ChatGPT 已拆分到 rules/family/ 下按服务独立分组，便于单独切换
 
 # ip125
-HOST-SUFFIX,ip125.com,住宅IP
+HOST-SUFFIX,ip125.com,住宅节点
 
 # fast.com
-HOST-SUFFIX,fast.com,住宅IP
-HOST-SUFFIX,nflxvideo.net,住宅IP
+HOST-SUFFIX,fast.com,住宅节点
+HOST-SUFFIX,nflxvideo.net,住宅节点

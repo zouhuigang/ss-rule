@@ -6,56 +6,56 @@
 #####################
 
 # > Apple Intelligence
-HOST-SUFFIX,smoot.apple.com,代理IP
-HOST,apple-relay.apple.com,代理IP
-HOST,apple-relay.cloudflare.com,代理IP
-HOST,apple-relay.fastly-edge.com,代理IP
-HOST,cp4.cloudflare.com,代理IP
-HOST,gspe1-ssl.ls.apple.com,代理IP
-HOST,guzzoni.apple.com,代理IP
+HOST-SUFFIX,smoot.apple.com,代理节点
+HOST,apple-relay.apple.com,代理节点
+HOST,apple-relay.cloudflare.com,代理节点
+HOST,apple-relay.fastly-edge.com,代理节点
+HOST,cp4.cloudflare.com,代理节点
+HOST,gspe1-ssl.ls.apple.com,代理节点
+HOST,guzzoni.apple.com,代理节点
 
 
 # > Microsoft Copilot
-HOST,copilot.microsoft.com,代理IP
-HOST,sydney.bing.com,代理IP
-HOST,www.bing.com,代理IP
+HOST,copilot.microsoft.com,代理节点
+HOST,sydney.bing.com,代理节点
+HOST,www.bing.com,代理节点
 # > GitHub Copilot
-HOST-SUFFIX,githubcopilot.com,代理IP
+HOST-SUFFIX,githubcopilot.com,代理节点
 
 # > Google
 # > > AI Studio
-HOST-SUFFIX,generativeai.google,代理IP
-HOST-SUFFIX,makersuite.google.com,代理IP
-HOST,aistudio.google.com,代理IP
-HOST,alkalicore-pa.clients6.google.com,代理IP
-HOST,alkalimakersuite-pa.clients6.google.com,代理IP
+HOST-SUFFIX,generativeai.google,代理节点
+HOST-SUFFIX,makersuite.google.com,代理节点
+HOST,aistudio.google.com,代理节点
+HOST,alkalicore-pa.clients6.google.com,代理节点
+HOST,alkalimakersuite-pa.clients6.google.com,代理节点
 # > > Antigravity
-HOST,antigravity.google,代理IP
-HOST,antigravity-unleash.goog,代理IP
+HOST,antigravity.google,代理节点
+HOST,antigravity-unleash.goog,代理节点
 # > > DeepMind
-HOST-SUFFIX,deepmind.com,代理IP
-HOST-SUFFIX,deepmind.google,代理IP
+HOST-SUFFIX,deepmind.com,代理节点
+HOST-SUFFIX,deepmind.google,代理节点
 # > > Gemini
-HOST-SUFFIX,proactivebackend-pa.googleapis.com,代理IP
-HOST-SUFFIX,geller-pa.googleapis.com,代理IP
-HOST-SUFFIX,generativelanguage.googleapis.com,代理IP
-HOST,ai.google.dev,代理IP
-HOST,bard.google.com,代理IP
-HOST,gemini.google.com,代理IP
+HOST-SUFFIX,proactivebackend-pa.googleapis.com,代理节点
+HOST-SUFFIX,geller-pa.googleapis.com,代理节点
+HOST-SUFFIX,generativelanguage.googleapis.com,代理节点
+HOST,ai.google.dev,代理节点
+HOST,bard.google.com,代理节点
+HOST,gemini.google.com,代理节点
 # > > NotebookLM
-HOST-KEYWORD,notebooklm.google,代理IP
+HOST-KEYWORD,notebooklm.google,代理节点
 # > > Search Labs
-HOST-KEYWORD,labs.google,代理IP
+HOST-KEYWORD,labs.google,代理节点
 
 # > Grok
-HOST-SUFFIX,grok.com,代理IP
-HOST-SUFFIX,x.ai,代理IP
-HOST-SUFFIX,x.com,代理IP
+HOST-SUFFIX,grok.com,代理节点
+HOST-SUFFIX,x.ai,代理节点
+HOST-SUFFIX,x.com,代理节点
 
 # > OpenRouter
-HOST-SUFFIX,openrouter.ai,代理IP
+HOST-SUFFIX,openrouter.ai,代理节点
 
 # > Perplexity
-HOST-SUFFIX,perplexity.ai,代理IP
-HOST-SUFFIX,pplx.ai,代理IP
-HOST,pplx-res.cloudinary.com,代理IP
+HOST-SUFFIX,perplexity.ai,代理节点
+HOST-SUFFIX,pplx.ai,代理节点
+HOST,pplx-res.cloudinary.com,代理节点

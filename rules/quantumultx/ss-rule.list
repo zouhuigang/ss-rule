@@ -6,8 +6,8 @@
 ##  ⚠️ 不要设置「策略偏好」！本文件每行自带策略，策略偏好会把它们全部覆盖掉
 ##
 ##  需要你的 QX [policy] 里存在以下策略组（名称须一致，或自行批量改名）：
-##    Claude / ChatGPT / 住宅IP / 代理IP / Max / PROXY
-##  DIRECT、REJECT 为内置策略，无需创建
+##    Claude / ChatGPT / 住宅IP / 代理IP / Max
+##  direct、proxy、reject 为内置策略，无需创建
 ##
 ##  资源排序建议：本文件放在所有分流引用的【最上面】
 ##  （blackmatrix7 的 Global.list 也含 anthropic/claude/openai 域名，
@@ -18,19 +18,19 @@
 # ================================================================
 # 1. Tailscale CGNAT 网段直连（任何应用访问 Tailscale peer 时直连）
 # ================================================================
-IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-IP6-CIDR,fd7a:115c:a1e0::/48,DIRECT,no-resolve
+IP-CIDR,100.64.0.0/10,direct,no-resolve
+IP6-CIDR,fd7a:115c:a1e0::/48,direct,no-resolve
 
 # ================================================================
 # 2. GitHub 全家桶走代理（防 DNS 污染导致订阅/规则拉取失败）
 # ================================================================
-HOST-SUFFIX,raw.githubusercontent.com,PROXY
-HOST-SUFFIX,githubusercontent.com,PROXY
-HOST-SUFFIX,githubassets.com,PROXY
-HOST-SUFFIX,github.com,PROXY
-HOST-SUFFIX,github.io,PROXY
-HOST-SUFFIX,ghcr.io,PROXY
-HOST-KEYWORD,github,PROXY
+HOST-SUFFIX,raw.githubusercontent.com,proxy
+HOST-SUFFIX,githubusercontent.com,proxy
+HOST-SUFFIX,githubassets.com,proxy
+HOST-SUFFIX,github.com,proxy
+HOST-SUFFIX,github.io,proxy
+HOST-SUFFIX,ghcr.io,proxy
+HOST-KEYWORD,github,proxy
 
 # ================================================================
 # 3. Claude 走住宅IP（按服务独立分组，被封时单独切换 Claude 策略组）
@@ -370,17 +370,17 @@ HOST-SUFFIX,brightline.tv,Max
 # ================================================================
 # 9. 苹果私有 TLD 直接拒绝，避免触发 5 秒 DNS 超时
 # ================================================================
-HOST-SUFFIX,safebrowsing.apple,REJECT
+HOST-SUFFIX,safebrowsing.apple,reject
 
 # ================================================================
 # 10. 直连（lilybearing / aliyun / Tailscale 域名）
 # ================================================================
-HOST-SUFFIX,lilybearing.com,DIRECT
-HOST-SUFFIX,aliyun.com,DIRECT
+HOST-SUFFIX,lilybearing.com,direct
+HOST-SUFFIX,aliyun.com,direct
 
 # Tailscale
-HOST-SUFFIX,tailscale.com,DIRECT
-HOST-SUFFIX,tailscale.io,DIRECT
-HOST-SUFFIX,ts.net,DIRECT
-IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-IP6-CIDR,fd7a:115c:a1e0::/48,DIRECT,no-resolve
+HOST-SUFFIX,tailscale.com,direct
+HOST-SUFFIX,tailscale.io,direct
+HOST-SUFFIX,ts.net,direct
+IP-CIDR,100.64.0.0/10,direct,no-resolve
+IP6-CIDR,fd7a:115c:a1e0::/48,direct,no-resolve

@@ -44,13 +44,15 @@ optimize/                   VPS TCP 调优
 **分流方式说明**：
 
 ```
+[Proxy]
+住宅节点缺失-禁止连接 = socks5,127.0.0.1,1
 [Proxy Group]
-Claude = select,专属纯净静态住宅节点,专属纯净静态住宅Ip-连接线路1,专属纯净静态住宅Ip-连接线路2,专属纯净静态住宅Ip-连接线路3,专属纯净静态住宅Ip-连接线路4
+Claude = select,select=0,policy-regex-filter=^(专属纯净静态住宅(节点|Ip-连接线路[1-4])|住宅节点缺失-禁止连接)$
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family/Claude.list,Claude
 ```
 
-支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，请在分组中选择订阅里实际存在且可用的住宅节点。
+支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，正则只加入实际存在的匹配节点，默认选择首个匹配；没有匹配住宅节点时使用本地阻断候选「住宅节点缺失-禁止连接」。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
 
 `select` 为纯手动切换（不会自动切走，保证 IP 纯净度可控）；`RULE-SET` 后跟规则文件地址和分组名。
 

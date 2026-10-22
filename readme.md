@@ -2,7 +2,7 @@
 
 个人分流规则仓库，同时支持 **Shadowrocket（小火箭）** 和 **Quantumult X**。
 
-核心思路：对 IP 质量要求高的服务（Claude、ChatGPT 等）走**住宅/静态 IP**，且**按服务独立分组** —— 某个服务的住宅 IP 被封时，在首页单独把该服务切到「代理IP」，不影响其他服务；恢复后再切回。
+核心思路：对 IP 质量要求高的服务（Claude、ChatGPT 等）走**住宅/静态 IP**，且**按服务独立分组**。住宅分组只允许选择住宅节点；住宅节点不可用时停止使用，不切换到普通代理。
 
 ## 目录结构
 
@@ -43,7 +43,7 @@ optimize/                   VPS TCP 调优
 
 ```
 [Proxy Group]
-Claude = select,专属纯净静态住宅节点,专属纯净静态住宅Ip-连接线路1,专属纯净静态住宅Ip-连接线路2,专属纯净静态住宅Ip-连接线路3,专属纯净静态住宅Ip-连接线路4,代理IP
+Claude = select,专属纯净静态住宅节点,专属纯净静态住宅Ip-连接线路1,专属纯净静态住宅Ip-连接线路2,专属纯净静态住宅Ip-连接线路3,专属纯净静态住宅Ip-连接线路4
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family/Claude.list,Claude
 ```
@@ -80,9 +80,9 @@ https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/quant
 [policy]
 static = 住宅节点, server-tag-regex=住宅|静态|家宽|Residential|Static|ISP
 static = 代理IP, proxy, 住宅节点
-static = Claude, 住宅节点, 代理IP
-static = ChatGPT, 住宅节点, 代理IP
-static = 住宅IP, 住宅节点, 代理IP
+static = Claude, 住宅节点
+static = ChatGPT, 住宅节点
+static = 住宅IP, 住宅节点
 static = Max, proxy
 ```
 

@@ -54,6 +54,8 @@ RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/ru
 
 支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，正则只加入实际存在的匹配节点，默认选择首个匹配；没有匹配住宅节点时使用本地阻断候选「住宅节点缺失-禁止连接」。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
 
+普通代理分组使用 `代理IP = select,PROXY,policy-select-name=PROXY`，不混入住宅节点。`PROXY` 跟随小火箭首页选中的节点，因此首页应选择普通专线；住宅网址由住宅分组单独选择出口。全局路由使用「配置」。
+
 `select` 为纯手动切换（不会自动切走，保证 IP 纯净度可控）；`RULE-SET` 后跟规则文件地址和分组名。
 
 ---
@@ -83,7 +85,7 @@ https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/quant
 ```ini
 [policy]
 static = 住宅节点, server-tag-regex=住宅|静态|家宽|Residential|Static|ISP
-static = 代理IP, proxy, 住宅节点
+static = 代理IP, proxy
 static = Claude, 住宅节点
 static = ChatGPT, 住宅节点
 static = 住宅IP, 住宅节点

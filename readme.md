@@ -43,10 +43,12 @@ optimize/                   VPS TCP 调优
 
 ```
 [Proxy Group]
-Claude = select,专属纯净静态住宅节点,代理IP
+Claude = select,专属纯净静态住宅节点,专属纯净静态住宅Ip-连接线路1,专属纯净静态住宅Ip-连接线路2,专属纯净静态住宅Ip-连接线路3,专属纯净静态住宅Ip-连接线路4,代理IP
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family/Claude.list,Claude
 ```
+
+支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，请在分组中选择订阅里实际存在且可用的住宅节点。
 
 `select` 为纯手动切换（不会自动切走，保证 IP 纯净度可控）；`RULE-SET` 后跟规则文件地址和分组名。
 

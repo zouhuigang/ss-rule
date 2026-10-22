@@ -9,6 +9,9 @@
 # ip125
 HOST-SUFFIX,ip125.com,住宅节点
 
+# ping0.cc
+HOST-SUFFIX,ping0.cc,住宅节点
+
 # fast.com
 HOST-SUFFIX,fast.com,住宅节点
 HOST-SUFFIX,nflxvideo.net,住宅节点

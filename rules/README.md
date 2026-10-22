@@ -18,8 +18,10 @@ https://docs.anthropic.com/en/api/ip-addresses
      通过正则筛选实际存在的「专属纯净静态住宅节点」，同时支持「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，
      默认选择首个匹配住宅节点，无匹配时使用「住宅节点缺失-禁止连接」本地阻断候选；可在各分组中手动选择住宅节点，
      住宅节点不可用时停止使用，不切换到普通代理（select 纯手动，不会自动切换）
-   - 其余杂项（ip125、fast.com 等）在 family_ip.list，走「住宅IP」分组
+   - 其余杂项（ip125.com、ping0.cc、fast.com 等）在 family_ip.list，走「住宅IP」分组
 
 2、对单纯需要梯子的，用proxy_ip.list，走代理
 
 3、对国内访问的，用direct_ip.list，不走代理
+
+住宅节点与 IP 检测网站分流的详细记录见 [住宅节点策略约定](../docs/residential-policy.md#ip-检测网站分流记录)。

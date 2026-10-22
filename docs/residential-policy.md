@@ -77,6 +77,45 @@ Quantumult X 的住宅策略同样不得引入普通代理候选。当前 `quant
 
 Quantumult X 的普通代理分组同样仅保留 `proxy`，不嵌套「住宅节点」。
 
+## IP 检测网站分流记录
+
+2026-10-22 按维护者要求，将 `ping0.cc` 与 `ip125.com` 放在同一住宅规则集中，用于通过住宅出口访问。这次规则变更对应提交 `ece5987`。
+
+| 客户端 | 域名及其子域名 | 目标分组 | 维护文件 |
+|---|---|---|---|
+| Shadowrocket | `ip125.com`、`ping0.cc` | `住宅IP` | [rules/family_ip.list](../rules/family_ip.list) |
+| Quantumult X 拆分版 | `ip125.com`、`ping0.cc` | `住宅节点` | [rules/quantumultx/family_ip.list](../rules/quantumultx/family_ip.list) |
+| Quantumult X 融合版 | `ip125.com`、`ping0.cc` | `住宅节点` | [rules/quantumultx/ss-rule.list](../rules/quantumultx/ss-rule.list) |
+
+Shadowrocket 规则集中的条目：
+
+```ini
+DOMAIN-SUFFIX,ip125.com
+DOMAIN-SUFFIX,ping0.cc
+```
+
+`ss.conf` 通过以下规则将整个清单交给「住宅IP」分组：
+
+```ini
+RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family_ip.list,住宅IP
+```
+
+Quantumult X 两份规则中的对应条目：
+
+```ini
+HOST-SUFFIX,ip125.com,住宅节点
+HOST-SUFFIX,ping0.cc,住宅节点
+```
+
+### 更新与检查
+
+1. 更新客户端订阅的远程规则集。Shadowrocket 中确认 `family_ip.list` 已包含 `ping0.cc`；Quantumult X 更新正在使用的拆分版或融合版引用。
+2. Shadowrocket 全局路由保持「配置」，首页选择普通专线；「住宅IP」分组独立选择实际存在的指定住宅节点。
+3. 在客户端测试 `ip125.com`、`ping0.cc` 的规则，确认都命中住宅分组，并解析到指定住宅节点。
+4. 访问两个网站，并结合连接日志核对实际出口。若仍显示普通专线，检查规则缓存、分组当前选择及是否存在更高优先级规则。
+
+本次添加已检查三份规则文件的内容一致性和差异格式；尚未对 `ping0.cc` 完成客户端规则测试或实际出口验证。其他域名上的第三方请求不因本条后缀规则自动归入住宅分组。
+
 ## 修改时检查
 
 1. 三个住宅分组保留上述五种名称的兼容性。

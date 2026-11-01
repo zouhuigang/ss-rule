@@ -29,34 +29,28 @@ optimize/                   VPS TCP 调优
 
 ## Shadowrocket 使用
 
-懒人配置，含策略组，开箱即用（基于 [LOWERTOP/Shadowrocket](https://github.com/LOWERTOP/Shadowrocket) 懒人配置修改）。
+基于 [LOWERTOP/Shadowrocket](https://github.com/LOWERTOP/Shadowrocket) 配置，采用固定住宅出口分流。
 
-配置地址：<https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/ss.conf>
+公开模板：<https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/ss.conf>
 
-![二维码](https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/figure/ss.png)
+**公开模板不含住宅凭据，住宅连接默认阻断。** 需要将确认的住宅节点固化到私有配置后使用，不能再直接下载公开模板覆盖私有配置。
 
-**导入方法**：
-- 方法一：用 Safari 或 Shadowrocket 扫描上方二维码；
-- 方法二：Shadowrocket → 配置 → 右上角 ➕ → 粘贴配置地址 → 下载。
+1. 将模板另存为设备私有配置，例如 `ss-residential-private.conf`。
+2. 只将 `[Proxy]` 中「住宅固定出口」的占位参数替换为确认可用的真实住宅节点参数（协议、地址、端口、认证和 TLS 等必须完整保留）。
+3. 私有配置移除整份更新地址 `update-url`，防止公开模板覆盖本地住宅参数。
+4. 使用时全局路由保持「配置」，首页选择普通专线；核对 Claude、ChatGPT、ip125.com、ping0.cc 的规则及真实出口。
 
-导入后在 `ⓘ → 代理分组` 中把 Claude / ChatGPT / 住宅IP 分组指到你的住宅节点。最好断开重连一次让规则生效。
-
-**分流方式说明**：
-
-```
-[Proxy]
-住宅节点缺失-禁止连接 = socks5,127.0.0.1,1
+```ini
 [Proxy Group]
-Claude = select,select=0,policy-regex-filter=^(专属纯净静态住宅(节点|Ip-连接线路[1-4])|住宅节点缺失-禁止连接)$
-[Rule]
-RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family/Claude.list,Claude
+Claude = select,住宅固定出口,policy-select-name=住宅固定出口
+ChatGPT = select,住宅固定出口,policy-select-name=住宅固定出口
+住宅IP = select,住宅固定出口,policy-select-name=住宅固定出口
+代理IP = select,PROXY,policy-select-name=PROXY
 ```
 
-支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，正则只加入实际存在的匹配节点，默认选择首个匹配；没有匹配住宅节点时使用本地阻断候选「住宅节点缺失-禁止连接」。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
+「住宅固定出口」的真实定义必须保存在同一私有配置的 `[Proxy]` 中。源节点名称支持旧名称和线路1～4；不自动换线。断网时连接失败，恢复后新请求继续使用原节点；订阅重命名不影响快照。节点凭据变动须人工确认后更新。
 
-普通代理分组使用 `代理IP = select,PROXY,policy-select-name=PROXY`，不混入住宅节点。`PROXY` 跟随小火箭首页选中的节点，因此首页应选择普通专线；住宅网址由住宅分组单独选择出口。全局路由使用「配置」。
-
-`select` 为纯手动切换（不会自动切走，保证 IP 纯净度可控）；`RULE-SET` 后跟规则文件地址和分组名。
+住宅域名在本地内置，远程规则未下载时也有本地规则。普通代理流量跟随首页节点。私有文件包含凭据，禁止上传或分享；更新规则需合并到私有配置，并保留固定出口参数。详见 [策略文档](docs/residential-policy.md)。
 
 ---
 

@@ -44,15 +44,13 @@ optimize/                   VPS TCP 调优
 **分流方式说明**：
 
 ```
-[Proxy]
-住宅节点缺失-禁止连接 = socks5,127.0.0.1,1
 [Proxy Group]
-Claude = select,select=0,policy-regex-filter=^(专属纯净静态住宅(节点|Ip-连接线路[1-4])|住宅节点缺失-禁止连接)$
+Claude = select,select=0,policy-regex-filter=^专属纯净静态住宅(节点|Ip-连接线路[1-4])$
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family/Claude.list,Claude
 ```
 
-支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，正则只加入实际存在的匹配节点，默认选择首个匹配；没有匹配住宅节点时使用本地阻断候选「住宅节点缺失-禁止连接」。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
+支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，正则只加入实际存在的匹配节点，默认选择首个匹配；不再添加阻断占位节点。没有匹配住宅节点时需先修复订阅，不能据此配置保证客户端会自动断网。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
 
 普通代理分组使用 `代理IP = select,PROXY,policy-select-name=PROXY`，不混入住宅节点。`PROXY` 跟随小火箭首页选中的节点，因此首页应选择普通专线；住宅网址由住宅分组单独选择出口。全局路由使用「配置」。
 

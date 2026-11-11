@@ -1,5 +1,7 @@
 # DNS 解析优化记录
 
+> 本文记录旧版以国内解析速度为主的方案。2026-11-11，Shadowrocket 已改为默认境外 DoH、明确直连域名使用国内 DoH，并启用客户端解析代理目标。当前设置见 [IPPure DNS 检测与分流配置](ippure-dns-routing.md)；下文的混合明文 DNS 和 `dns-direct-system = true` 不再代表当前 `ss.conf`。
+
 基于真实访问日志（约 50 秒采样窗口，702 行）对 `ss.conf` 的 DNS 配置做的第二轮优化。
 
 ## 一、日志诊断

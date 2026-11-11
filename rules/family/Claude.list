@@ -32,6 +32,13 @@ DOMAIN-SUFFIX,ippure.com
 DOMAIN-SUFFIX,icanhazip.com
 DOMAIN-SUFFIX,ip125.com
 
+# IPPure 的随机 DNS 探测域名：和 Claude 同组，避免被国内直连规则抢先匹配
+# 检测机制与 DNS 分流设置见 docs/ippure-dns-routing.md
+DOMAIN-SUFFIX,ipv4.surfsharkdns.com
+DOMAIN-SUFFIX,u.fastly-analytics.com
+DOMAIN-SUFFIX,dns4.browserleaks.net
+DOMAIN-SUFFIX,dns6.browserleaks.net
+
 # IP125 首页的实际探测及备用接口，与 Claude 共用住宅出口
 # 精确匹配主机名；来源及影响范围见 docs/ip125-claude-routing.md
 DOMAIN,httpbin.org

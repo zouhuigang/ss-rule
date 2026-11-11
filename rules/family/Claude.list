@@ -32,6 +32,20 @@ DOMAIN-SUFFIX,ippure.com
 DOMAIN-SUFFIX,icanhazip.com
 DOMAIN-SUFFIX,ip125.com
 
+# IP125 首页的实际探测及备用接口，与 Claude 共用住宅出口
+# 精确匹配主机名；来源及影响范围见 docs/ip125-claude-routing.md
+DOMAIN,httpbin.org
+DOMAIN,ipwho.is
+DOMAIN,api.ip.sb
+DOMAIN,ipcelou-298103.appspot.com
+DOMAIN,groovy-student-432.appspot.com
+DOMAIN,api.duckduckgo.com
+DOMAIN,zh.wikipedia.org
+DOMAIN,pubstatic.b0.upaiyun.com
+DOMAIN,www.cloudflare-cn.com
+DOMAIN,ipv6.testipv6.cn
+DOMAIN,whois.pconline.com.cn
+
 # Claude API / Console 官方入站地址（不使用服务器出站范围）
 # https://platform.claude.com/docs/en/api/ip-addresses
 IP-CIDR,160.79.104.0/23,no-resolve

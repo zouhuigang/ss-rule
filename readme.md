@@ -6,6 +6,8 @@
 
 住宅策略的长期维护约束见 [住宅节点策略约定](docs/residential-policy.md)。
 
+IP125 主站和探测接口共用 Claude 住宅出口，接口清单、更新方法及暂不启用的自动核验方案见 [IP125 住宅出口分流与检测说明](docs/ip125-claude-routing.md)。
+
 ## 目录结构
 
 ```
@@ -15,13 +17,13 @@ rules/
 ├── family/                 按服务拆分的住宅IP规则（Shadowrocket/Surge 格式）
 │   ├── Claude.list
 │   └── ChatGPT.list
-├── family_ip.list          其余需要住宅IP的杂项（ip125、fast.com 等）
+├── family_ip.list          其余需要住宅IP的杂项（ping0、fast.com 等）
 ├── proxy/                  需要走代理的服务（AI.list、YouTube.list）
 ├── direct/direct_ip.list   直连（lilybearing、aliyun、Tailscale）
 └── quantumultx/            上述规则的 Quantumult X 原生格式版本
     ├── ss-rule.list        ⭐ 融合版：全部规则按优先级合并，一条链接搞定
     └── *.list              各服务单独拆分版
-docs/                       DNS 优化、防污染排查笔记
+docs/                       住宅出口分流说明、DNS 优化与防污染排查笔记
 optimize/                   VPS TCP 调优
 ```
 

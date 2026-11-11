@@ -35,6 +35,20 @@ HOST-SUFFIX,ippure.com,住宅节点
 HOST-SUFFIX,icanhazip.com,住宅节点
 HOST-SUFFIX,ip125.com,住宅节点
 
+# IP125 首页的实际探测及备用接口，与 Claude 共用住宅出口
+# 精确匹配主机名；来源及影响范围见 docs/ip125-claude-routing.md
+HOST,httpbin.org,住宅节点
+HOST,ipwho.is,住宅节点
+HOST,api.ip.sb,住宅节点
+HOST,ipcelou-298103.appspot.com,住宅节点
+HOST,groovy-student-432.appspot.com,住宅节点
+HOST,api.duckduckgo.com,住宅节点
+HOST,zh.wikipedia.org,住宅节点
+HOST,pubstatic.b0.upaiyun.com,住宅节点
+HOST,www.cloudflare-cn.com,住宅节点
+HOST,ipv6.testipv6.cn,住宅节点
+HOST,whois.pconline.com.cn,住宅节点
+
 # Claude API / Console 官方入站地址（不使用服务器出站范围）
 # https://platform.claude.com/docs/en/api/ip-addresses
 IP-CIDR,160.79.104.0/23,住宅节点,no-resolve

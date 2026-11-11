@@ -2,6 +2,8 @@
 
 更新日期：2026-11-11。此页说明 Shadowrocket 的 DNS 配置；Quantumult X 仅同步探测域名的住宅分流，不声称具备相同的 DNS 行为。
 
+本次故障经过、回退范围及验证状态见 [DNS 故障与回退记录](dns-rollback-2026-11-11.md)。
+
 ## 网站如何识别 DNS
 
 [IPPure Claude 检测页](https://ippure.com/claude.html)不会直接读取设备的 DNS 设置。它的[DNS 检测脚本](https://ippure.com/assets/chunks/useDNS.D-IEVMHV.js)生成随机子域名，发起 HTTPS 请求，并从测试服务取得参与解析的递归 DNS 地址：

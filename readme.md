@@ -10,6 +10,8 @@ IP125 主站和探测接口共用 Claude 住宅出口，接口清单、更新方
 
 Shadowrocket 已恢复本次 DNS 调整前的策略：阿里 / 腾讯 DNS 为主，境外 DoH 备用，直连域名允许系统 DNS；撤销强制本地解析。IPPure 随机探测域名仍归入 Claude 分组，检测原理及回退说明见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
 
+本次故障反馈、回退提交、配置差异和客户端复查步骤见 [2026 年 11 月 11 日 DNS 故障与回退记录](docs/dns-rollback-2026-11-11.md)。
+
 ## 目录结构
 
 ```

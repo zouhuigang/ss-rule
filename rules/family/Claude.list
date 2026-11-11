@@ -46,6 +46,187 @@ DOMAIN,www.cloudflare-cn.com
 DOMAIN,ipv6.testipv6.cn
 DOMAIN,whois.pconline.com.cn
 
+# IP125「我的 IP」页面的其他查询接口
+DOMAIN,r.inews.qq.com
+DOMAIN,perfops.byte-test.com
+DOMAIN,perfops2.byte-test.com
+DOMAIN,perfops3.byte-test.com
+DOMAIN,nstool.netease.com
+DOMAIN,myip.ipip.net
+DOMAIN,jsonp-ip.appspot.com
+DOMAIN,checkip.amazonaws.com
+DOMAIN,perfops1.byteperf.com
+DOMAIN,perfops2.byteperf.com
+DOMAIN,perfops3.byteperf.com
+DOMAIN,workers.dev
+DOMAIN,api4.ipify.org
+DOMAIN,api6.ipify.org
+# 阿里云探测使用随机子域，仅覆盖专用探测域名
+DOMAIN-SUFFIX,dns-detect.alicdn.com
+
+# IP125 目标 IP 快照：2026-11-11，Google DoH A/AAAA；CDN 地址可能共享或变化
+# no-resolve 仅补充无域名的 IP 连接；这些地址不是住宅出口白名单
+# Cloudflare IPv4 字面 IP 探测 URL
+IP-CIDR,1.0.0.1/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,3.216.111.242/32,no-resolve
+# httpbin.org
+IP-CIDR,3.221.253.123/32,no-resolve
+# perfops2.byteperf.com
+IP-CIDR,8.210.5.254/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,32.195.252.32/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,32.201.94.197/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,34.227.235.47/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,35.174.236.67/32,no-resolve
+# perfops1.byteperf.com
+IP-CIDR,35.219.10.74/32,no-resolve
+# perfops3.byteperf.com
+IP-CIDR,43.134.24.216/32,no-resolve
+# ip125.com
+IP-CIDR,43.134.194.32/32,no-resolve
+# r.inews.qq.com
+IP-CIDR,43.169.32.67/32,no-resolve
+# httpbin.org
+IP-CIDR,44.209.237.184/32,no-resolve
+# nstool.netease.com
+IP-CIDR,52.9.76.246/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,52.45.67.241/32,no-resolve
+# api.duckduckgo.com
+IP-CIDR,52.250.42.157/32,no-resolve
+# httpbin.org
+IP-CIDR,54.172.45.38/32,no-resolve
+# nstool.netease.com
+IP-CIDR,54.177.72.64/32,no-resolve
+# nstool.netease.com
+IP-CIDR,54.177.190.169/32,no-resolve
+# nstool.netease.com
+IP-CIDR,54.177.203.23/32,no-resolve
+# nstool.netease.com
+IP-CIDR,54.215.111.164/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,58.211.15.211/32,no-resolve
+# perfops3.byte-test.com
+IP-CIDR,71.18.200.100/32,no-resolve
+# *.dns-detect.alicdn.com（随机子域抽样）
+IP-CIDR,101.132.132.217/32,no-resolve
+# workers.dev
+IP-CIDR,104.18.12.15/32,no-resolve
+# workers.dev
+IP-CIDR,104.18.13.15/32,no-resolve
+# myip.ipip.net
+IP-CIDR,104.20.25.138/32,no-resolve
+# ipwho.is
+IP-CIDR,104.20.44.133/32,no-resolve
+# api.ip.sb
+IP-CIDR,104.26.12.31/32,no-resolve
+# api4.ipify.org
+IP-CIDR,104.26.12.205/32,no-resolve
+# api.ip.sb
+IP-CIDR,104.26.13.31/32,no-resolve
+# api4.ipify.org
+IP-CIDR,104.26.13.205/32,no-resolve
+# perfops.byte-test.com, perfops2.byte-test.com
+IP-CIDR,107.151.158.226/32,no-resolve
+# pubstatic.b0.upaiyun.com
+IP-CIDR,112.45.27.150/32,no-resolve
+# www.cloudflare-cn.com
+IP-CIDR,117.177.57.161/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,119.96.7.7/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,119.96.7.11/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,119.96.7.12/32,no-resolve
+# jsonp-ip.appspot.com
+IP-CIDR,142.251.32.180/32,no-resolve
+# ipcelou-298103.appspot.com
+IP-CIDR,142.251.41.20/32,no-resolve
+# groovy-student-432.appspot.com
+IP-CIDR,142.251.215.84/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,171.105.61.2/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,171.105.61.3/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,171.105.61.4/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,171.105.61.5/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,171.105.62.2/32,no-resolve
+# myip.ipip.net
+IP-CIDR,172.66.155.12/32,no-resolve
+# ipwho.is
+IP-CIDR,172.66.175.107/32,no-resolve
+# api4.ipify.org
+IP-CIDR,172.67.74.152/32,no-resolve
+# api.ip.sb
+IP-CIDR,172.67.75.172/32,no-resolve
+# nstool.netease.com
+IP-CIDR,184.72.57.190/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,184.193.4.226/32,no-resolve
+# checkip.amazonaws.com
+IP-CIDR,184.196.213.29/32,no-resolve
+# zh.wikipedia.org
+IP-CIDR,198.35.26.224/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,223.244.5.24/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,223.244.5.25/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,223.244.5.26/32,no-resolve
+# whois.pconline.com.cn
+IP-CIDR,223.244.5.27/32,no-resolve
+# ipv6.testipv6.cn
+IP-CIDR6,2408:8220:310:76f0::8/128,no-resolve
+# www.cloudflare-cn.com
+IP-CIDR6,2408:876c:2c0:112:3cec:ce00:2cbf:fffe/128,no-resolve
+# pubstatic.b0.upaiyun.com
+IP-CIDR6,2409:8c62:e10:7f::a2/128,no-resolve
+# r.inews.qq.com
+IP-CIDR6,240d:c010:1f4:5::5e/128,no-resolve
+# httpbin.org
+IP-CIDR6,2600:1f18:2da1:d400:5c03:f07e:e0be:7edd/128,no-resolve
+# httpbin.org
+IP-CIDR6,2600:1f18:2da1:d401:3bc4:1b7d:6e3d:8acb/128,no-resolve
+# httpbin.org
+IP-CIDR6,2600:1f18:2da1:d402:54c2:29a8:4a48:2547/128,no-resolve
+# workers.dev
+IP-CIDR6,2606:4700::6812:c0f/128,no-resolve
+# workers.dev
+IP-CIDR6,2606:4700::6812:d0f/128,no-resolve
+# myip.ipip.net
+IP-CIDR6,2606:4700:10::6814:198a/128,no-resolve
+# ipwho.is
+IP-CIDR6,2606:4700:10::6814:2c85/128,no-resolve
+# myip.ipip.net
+IP-CIDR6,2606:4700:10::ac42:9b0c/128,no-resolve
+# ipwho.is
+IP-CIDR6,2606:4700:10::ac42:af6b/128,no-resolve
+# api.ip.sb
+IP-CIDR6,2606:4700:20::681a:c1f/128,no-resolve
+# api.ip.sb
+IP-CIDR6,2606:4700:20::681a:d1f/128,no-resolve
+# api.ip.sb
+IP-CIDR6,2606:4700:20::ac43:4bac/128,no-resolve
+# Cloudflare IPv6 字面 IP 探测 URL
+IP-CIDR6,2606:4700:4700::1111/128,no-resolve
+# api6.ipify.org
+IP-CIDR6,2607:f2d8:1:3c::4/128,no-resolve
+# ipcelou-298103.appspot.com
+IP-CIDR6,2607:f8b0:4007:806::2014/128,no-resolve
+# jsonp-ip.appspot.com
+IP-CIDR6,2607:f8b0:4007:807::2014/128,no-resolve
+# groovy-student-432.appspot.com
+IP-CIDR6,2607:f8b0:4007:80d::2014/128,no-resolve
+# zh.wikipedia.org
+IP-CIDR6,2620:0:863:ed1a::1/128,no-resolve
+
 # Claude API / Console 官方入站地址（不使用服务器出站范围）
 # https://platform.claude.com/docs/en/api/ip-addresses
 IP-CIDR,160.79.104.0/23,no-resolve

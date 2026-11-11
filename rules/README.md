@@ -19,7 +19,7 @@ https://platform.claude.com/docs/en/api/ip-addresses
 - API / Console 的显式 IP 规则使用官方入站地址：`160.79.104.0/23`、`153.61.224.0/22`、`2607:6bc0::/48`。不将服务器出站范围 `160.79.104.0/21` 当作客户端访问清单，也不扩大 IPv6 到 `/32`。
 - AS399358 在 [ARIN 登记](https://rdap.arin.net/registry/autnum/399358) 为 Anthropic。`IP-ASN` 作为自有网络的补充匹配，依赖客户端 ASN 数据库，不代表覆盖所有 Claude CDN。Shadowrocket 使用 `IP-ASN,399358,no-resolve`；Quantumult X 按 [官方示例](https://github.com/crossutility/Quantumult-X/blob/master/sample.conf) 使用 `IP-ASN,399358,住宅节点`。
 - 本次完成文件格式、覆盖范围和三份清单一致性检查；未验证客户端导入、ASN 数据库命中或实际出口。更新远程规则后，应在客户端规则测试和连接日志中确认命中住宅分组及指定住宅节点。
-- IP125 主站及其首页探测、备用接口一并纳入 Claude 住宅清单，详见 [IP125 住宅出口分流与检测说明](../docs/ip125-claude-routing.md)。
+- IP125 主站、首页及“我的 IP”页面的查询接口一并纳入 Claude 住宅清单，并附 2026-11-11 的 80 个目标 IP 快照（58 个 `/32`、22 个 `/128`），详见 [IP125 住宅出口分流与检测说明](../docs/ip125-claude-routing.md)。共享 CDN 地址可能影响其他无域名连接，快照随 DNS 变化需要更新。
 
 ### 分流
 

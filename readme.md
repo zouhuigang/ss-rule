@@ -8,7 +8,7 @@
 
 IP125 主站和探测接口共用 Claude 住宅出口，接口清单、更新方法及暂不启用的自动核验方案见 [IP125 住宅出口分流与检测说明](docs/ip125-claude-routing.md)。
 
-Shadowrocket 默认使用境外 DoH 解析，明确直连的国内域名使用国内 DoH；IPPure 随机 DNS 探测域名归入 Claude 分组。检测原理和更新后的核对步骤见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
+Shadowrocket 已恢复本次 DNS 调整前的策略：阿里 / 腾讯 DNS 为主，境外 DoH 备用，直连域名允许系统 DNS；撤销强制本地解析。IPPure 随机探测域名仍归入 Claude 分组，检测原理及回退说明见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
 
 ## 目录结构
 

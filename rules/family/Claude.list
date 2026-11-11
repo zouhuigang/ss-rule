@@ -2,30 +2,41 @@
 ##  Claude 走住宅IP  ##
 ######################
 
-# claude
+# 核心域名及 CDN（后缀规则覆盖所有子域名）
 DOMAIN,cdn.usefathom.com
 DOMAIN,a-cdn.claude.ai
 DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,anthropic.com.cdn.cloudflare.net
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,claudeusercontent.com
 DOMAIN-SUFFIX,clau.de
 DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.app
 DOMAIN-SUFFIX,claude.site
 DOMAIN-SUFFIX,claudemcpclient.com
 DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,downloads.claude.ai
 DOMAIN-SUFFIX,platform.claude.com
+
+# 认证与内容
 DOMAIN-SUFFIX,anthropic.auth0.com
 DOMAIN-SUFFIX,anthropic-com.ghost.io
 
+# Claude Code 可选遥测：仅列出官方使用的具体入口，不匹配整个 Datadog
+DOMAIN,http-intake.logs.us5.datadoghq.com
+DOMAIN,browser-intake-us5-datadoghq.com
 
-# 测试ip的地址
+# IP 检测网站（用于核对 Claude 分组的住宅出口）
 DOMAIN-SUFFIX,ippure.com
 DOMAIN-SUFFIX,icanhazip.com
 DOMAIN-SUFFIX,ip125.com
 
-
-# claude ip 官方公布的地址
+# Claude API / Console 官方入站地址（不使用服务器出站范围）
+# https://platform.claude.com/docs/en/api/ip-addresses
 IP-CIDR,160.79.104.0/23,no-resolve
+IP-CIDR,153.61.224.0/22,no-resolve
 IP-CIDR6,2607:6bc0::/48,no-resolve
+
+# Anthropic 自有网络补充匹配，依赖客户端 ASN 数据库
+IP-ASN,399358,no-resolve

@@ -1,25 +1,45 @@
 # Claude 走住宅IP（Quantumult X 原生格式，由 rules/family/Claude.list 转换生成）
-# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，「策略偏好」可覆盖默认策略「Claude」
+# 用法：QX 风车 → 分流 → 引用 → 添加本文件 raw 链接，使用配置中的「住宅节点」策略
 
 ######################
 ##  Claude 走住宅IP  ##
 ######################
 
-# claude
+# 核心域名及 CDN（后缀规则覆盖所有子域名）
 HOST,cdn.usefathom.com,住宅节点
 HOST,a-cdn.claude.ai,住宅节点
 HOST,servd-anthropic-website.b-cdn.net,住宅节点
+HOST,anthropic.com.cdn.cloudflare.net,住宅节点
 HOST-SUFFIX,anthropic.com,住宅节点
 HOST-SUFFIX,claude.ai,住宅节点
 HOST-SUFFIX,claudeusercontent.com,住宅节点
 HOST-SUFFIX,clau.de,住宅节点
 HOST-SUFFIX,claude.com,住宅节点
+HOST-SUFFIX,claude.app,住宅节点
 HOST-SUFFIX,claude.site,住宅节点
 HOST-SUFFIX,claudemcpclient.com,住宅节点
 HOST-SUFFIX,claudemcpcontent.com,住宅节点
 HOST-SUFFIX,downloads.claude.ai,住宅节点
 HOST-SUFFIX,platform.claude.com,住宅节点
 
-# claude ip 官方公布的地址
+# 认证与内容
+HOST-SUFFIX,anthropic.auth0.com,住宅节点
+HOST-SUFFIX,anthropic-com.ghost.io,住宅节点
+
+# Claude Code 可选遥测：仅列出官方使用的具体入口，不匹配整个 Datadog
+HOST,http-intake.logs.us5.datadoghq.com,住宅节点
+HOST,browser-intake-us5-datadoghq.com,住宅节点
+
+# IP 检测网站（用于核对 Claude 分组的住宅出口）
+HOST-SUFFIX,ippure.com,住宅节点
+HOST-SUFFIX,icanhazip.com,住宅节点
+HOST-SUFFIX,ip125.com,住宅节点
+
+# Claude API / Console 官方入站地址（不使用服务器出站范围）
+# https://platform.claude.com/docs/en/api/ip-addresses
 IP-CIDR,160.79.104.0/23,住宅节点,no-resolve
+IP-CIDR,153.61.224.0/22,住宅节点,no-resolve
 IP6-CIDR,2607:6bc0::/48,住宅节点,no-resolve
+
+# Anthropic 自有网络补充匹配，依赖客户端 ASN 数据库
+IP-ASN,399358,住宅节点

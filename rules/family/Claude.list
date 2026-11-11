@@ -16,6 +16,15 @@ DOMAIN-SUFFIX,claudemcpclient.com
 DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,downloads.claude.ai
 DOMAIN-SUFFIX,platform.claude.com
+DOMAIN-SUFFIX,anthropic.auth0.com
+DOMAIN-SUFFIX,anthropic-com.ghost.io
+
+
+# 测试ip的地址
+DOMAIN-SUFFIX,ippure.com
+DOMAIN-SUFFIX,icanhazip.com
+DOMAIN-SUFFIX,ip125.com
+
 
 # claude ip 官方公布的地址
 IP-CIDR,160.79.104.0/23,no-resolve

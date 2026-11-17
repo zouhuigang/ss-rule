@@ -51,12 +51,12 @@ optimize/                   VPS TCP 调优
 
 ```
 [Proxy Group]
-Claude = select,select=0,policy-regex-filter=^专属纯净静态住宅(节点|Ip-连接线路[1-4])$
+Claude = select,select=0,policy-regex-filter=静态住宅(节点|Ip)
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/rules/family/Claude.list,Claude
 ```
 
-支持「专属纯净静态住宅节点」及「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，正则只加入实际存在的匹配节点，默认选择首个匹配；不再添加阻断占位节点。没有匹配住宅节点时需先修复订阅，不能据此配置保证客户端会自动断网。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
+名称包含「静态住宅节点」或「静态住宅Ip」的现有节点均可加入候选，不限制前后缀或线路编号；兼容原有名称，也支持「专属纯净静态住宅Ip-连接线路5」和「专属纯净静态住宅Ip-本地线路」。`Ip` 按大写 I、小写 p 书写，节点名称本身不能证明出口的住宅属性。默认选择首个匹配，不添加阻断占位节点。没有匹配住宅节点时需先修复节点名称或订阅，不能据此配置保证客户端会自动断网。匹配顺序跟随客户端节点列表，可在分组中手动调整选择。
 
 普通代理分组使用 `代理IP = select,PROXY,policy-select-name=PROXY`，不混入住宅节点。`PROXY` 跟随小火箭首页选中的节点，因此首页应选择普通专线；住宅网址由住宅分组单独选择出口。全局路由使用「配置」。
 
@@ -73,7 +73,7 @@ RULE-SET,https://raw.githubusercontent.com/zouhuigang/ss-rule/refs/heads/main/ru
 设置 → 配置文件 → 下载/替换。已内置策略组、DNS（DoH3 防污染）、分流引用，**不含节点订阅**，导入后需要：
 
 1. 添加自己的节点订阅（节点 → 节点资源 → 引用，或编辑 `[server_remote]`）；
-2. 住宅/静态 IP 节点的名称需包含 `住宅 / 静态 / 家宽 / Residential / Static / ISP` 任一关键词，「住宅节点」分组按正则自动识别；
+2. 指定住宅节点的名称需包含 `静态住宅节点` 或 `静态住宅Ip`，「住宅节点」分组按正则筛选，保持手动选择；
 3. 首页勾选一个主力节点（内置 `proxy` 策略与 `final` 兜底跟随该选择）。
 
 ### 方式二：只订阅分流规则（保留自己现有配置）

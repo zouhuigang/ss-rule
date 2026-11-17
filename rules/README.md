@@ -25,7 +25,7 @@ https://platform.claude.com/docs/en/api/ip-addresses
 
 1、对访问IP质量要求比较高的，走住宅IP（按服务独立分组）：
    - Claude、ChatGPT 的域名按服务拆分在 family/ 目录下，各自对应配置里独立的 select 分组（Claude、ChatGPT），
-     通过正则筛选实际存在的「专属纯净静态住宅节点」，同时支持「专属纯净静态住宅Ip-连接线路1」至「专属纯净静态住宅Ip-连接线路4」，
+     通过正则筛选名称包含「静态住宅节点」或「静态住宅Ip」的现有节点，不限制前后缀或线路编号，兼容旧名称及本地住宅线路，
      默认选择首个匹配住宅节点，不添加阻断占位；可在各分组中手动选择住宅节点，
      住宅节点不可用时停止使用，不切换到普通代理（select 纯手动，不会自动切换）
    - IP125 主站及其探测接口在 Claude.list，Shadowrocket 优先走「Claude」分组；family_ip.list 中保留的 ip125.com 条目优先级较低

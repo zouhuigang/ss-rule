@@ -56,13 +56,26 @@ HOST-SUFFIX,claudemcpcontent.com,住宅节点
 HOST-SUFFIX,downloads.claude.ai,住宅节点
 HOST-SUFFIX,platform.claude.com,住宅节点
 
+# Anthropic 补充域名（按维护者指定的 v2fly 清单，2026-11-18 核对）
+# https://github.com/v2fly/domain-list-community/blob/master/data/anthropic
+HOST-SUFFIX,ant.dev,住宅节点
+HOST-SUFFIX,anthropic.team,住宅节点
+HOST-SUFFIX,antspace.dev,住宅节点
+HOST-SUFFIX,chatbotclaude.com,住宅节点
+HOST-SUFFIX,claude.dev,住宅节点
+HOST-SUFFIX,claude.new,住宅节点
+HOST-SUFFIX,claudeacademy.com,住宅节点
+HOST-SUFFIX,claudepages.dev,住宅节点
+HOST-SUFFIX,claudestudio.com,住宅节点
+
 # 认证与内容
 HOST-SUFFIX,anthropic.auth0.com,住宅节点
 HOST-SUFFIX,anthropic-com.ghost.io,住宅节点
 
-# Claude Code 可选遥测：仅列出官方使用的具体入口，不匹配整个 Datadog
+# Claude Code 可选遥测：精确匹配入口，不扩大到整个 Datadog 或 Sentry
 HOST,http-intake.logs.us5.datadoghq.com,住宅节点
 HOST,browser-intake-us5-datadoghq.com,住宅节点
+HOST,o1158394.ingest.us.sentry.io,住宅节点
 
 # IP 检测网站（用于核对 Claude 分组的住宅出口）
 HOST-SUFFIX,ippure.com,住宅节点

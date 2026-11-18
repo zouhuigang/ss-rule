@@ -15,6 +15,7 @@ https://platform.claude.com/docs/en/api/ip-addresses
 - Quantumult X 同步维护 `quantumultx/Claude.list` 及 `quantumultx/ss-rule.list` 中的 Claude 区段，统一使用「住宅节点」。
 - `claude.app` 及其子域名根据 [Desktop 官方网络要求](https://code.claude.com/docs/en/desktop#network-access-requirements) 补充；`anthropic.com`、`claude.ai`、`claude.com`、`claudeusercontent.com` 等已有后缀规则覆盖对应子域名。
 - 两个 Datadog 精确域名来自 [Claude Code 官方网络要求](https://code.claude.com/docs/en/network-config#network-access-requirements)，属于可选遥测。入口可能被其他应用共用，域名规则无法按应用区分；不加入整站 Sentry、Statsig、Intercom 或 `datadog`、`sift` 关键字规则。
+- 2026-11-18 按维护者指定的 [v2fly Anthropic 清单](https://github.com/v2fly/domain-list-community/blob/master/data/anthropic) 补齐 9 个域名及精确遥测入口 `o1158394.ingest.us.sentry.io`，同步三份规则。普通域名使用后缀匹配，`full:` 使用精确匹配；社区清单作为补充来源，不代表官方网络要求。全部归入 Claude 住宅规则，不扩大到整个 `sentry.io`。
 - `anthropic.com.cdn.cloudflare.net` 是维护者提供的兼容 CDN 条目，本次未找到官方网络清单中的确认依据，也未完成客户端实测。
 - API / Console 的显式 IP 规则使用官方入站地址：`160.79.104.0/23`、`153.61.224.0/22`、`2607:6bc0::/48`。不将服务器出站范围 `160.79.104.0/21` 当作客户端访问清单，也不扩大 IPv6 到 `/32`。
 - AS399358 在 [ARIN 登记](https://rdap.arin.net/registry/autnum/399358) 为 Anthropic。`IP-ASN` 作为自有网络的补充匹配，依赖客户端 ASN 数据库，不代表覆盖所有 Claude CDN。Shadowrocket 使用 `IP-ASN,399358,no-resolve`；Quantumult X 按 [官方示例](https://github.com/crossutility/Quantumult-X/blob/master/sample.conf) 使用 `IP-ASN,399358,住宅节点`。

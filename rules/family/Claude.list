@@ -19,13 +19,26 @@ DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,downloads.claude.ai
 DOMAIN-SUFFIX,platform.claude.com
 
+# Anthropic 补充域名（按维护者指定的 v2fly 清单，2026-11-18 核对）
+# https://github.com/v2fly/domain-list-community/blob/master/data/anthropic
+DOMAIN-SUFFIX,ant.dev
+DOMAIN-SUFFIX,anthropic.team
+DOMAIN-SUFFIX,antspace.dev
+DOMAIN-SUFFIX,chatbotclaude.com
+DOMAIN-SUFFIX,claude.dev
+DOMAIN-SUFFIX,claude.new
+DOMAIN-SUFFIX,claudeacademy.com
+DOMAIN-SUFFIX,claudepages.dev
+DOMAIN-SUFFIX,claudestudio.com
+
 # 认证与内容
 DOMAIN-SUFFIX,anthropic.auth0.com
 DOMAIN-SUFFIX,anthropic-com.ghost.io
 
-# Claude Code 可选遥测：仅列出官方使用的具体入口，不匹配整个 Datadog
+# Claude Code 可选遥测：精确匹配入口，不扩大到整个 Datadog 或 Sentry
 DOMAIN,http-intake.logs.us5.datadoghq.com
 DOMAIN,browser-intake-us5-datadoghq.com
+DOMAIN,o1158394.ingest.us.sentry.io
 
 # IP 检测网站（用于核对 Claude 分组的住宅出口）
 DOMAIN-SUFFIX,ippure.com

@@ -19,17 +19,18 @@
 
 ## Shadowrocket 客户端 DNS
 
-`ss.conf` 的主解析器是 Cloudflare，主解析失败或超时时使用 Google。两个 DoH 入口均使用 IP 地址，可省去解析 DoH 服务域名的步骤。
+`ss.conf` 的默认解析器是 Cloudflare，备用是 Google。匹配直连域名规则的查询由阿里或腾讯的 DoH 解析。各 DoH 入口均使用 IP 地址，可省去解析 DoH 服务域名的步骤。
 
 ```ini
 [General]
 dns-server = https://1.1.1.1/dns-query
 fallback-dns-server = https://8.8.8.8/dns-query
+direct-dns-server = https://223.5.5.5/dns-query,https://120.53.53.53/dns-query
 dns-direct-system = false
 hijack-dns = :53
 ```
 
-直连域名默认使用配置内的 DoH。原先绑定阿里、腾讯明文 DNS 的公网域名也改用该默认设置。`[Host]` 中 Apple、iCloud、Bonjour 等兼容性例外仍用系统 DNS。`hijack-dns` 针对进入 TUN 的 53 端口查询，应用自带的加密 DNS 和绕过 TUN 的流量需要另外核对。
+飞书 `feishu.cn` 通过明确的域名规则进入直连 DNS。依赖 GEOIP 判断的域名可能先使用默认 DNS。`[Host]` 中 Apple、iCloud、Bonjour 等兼容性例外仍用系统 DNS。实测主动发往 Wi-Fi 所设阿里 DNS 的部分明文查询仍能得到国内解析器的响应，`hijack-dns` 的接管范围需要按实际客户端核对。
 
 全局强制本地解析 `always-ip-address` 保持关闭。Claude、ChatGPT 和 IPPure 的探测域名经代理连接时，住宅节点可能负责解析目标域名。客户端 DoH 配置只控制客户端发起的查询，检测页仍可能显示住宅节点侧或浏览器使用的其他解析器。
 
@@ -61,6 +62,6 @@ DOMAIN-SUFFIX,dns6.browserleaks.net
 
 ## 验证范围
 
-在仓库所在机器上，Cloudflare `1.1.1.1` 和 Google `8.8.8.8` 均通过 RFC 8484 HTTPS 查询返回有效应答。实际 TUN 接管、备用 DNS 切换及住宅节点侧解析，需要在客户端导入完整配置后验证。
+在仓库所在机器上，绑定 Wi-Fi 接口测试时，Cloudflare 和 Google 的 DoH 连接超时，阿里和腾讯的 DoH 均为飞书、百度返回有效应答。使用该国内解析结果连接飞书，HTTPS 返回 HTTP 200。客户端导入完整配置后仍需复查直连 DNS、备用 DNS 切换及住宅节点侧解析。
 
 参考：[Google DoH 接口](https://developers.google.com/speed/public-dns/docs/doh)、[Cloudflare DoH 说明](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/)、[Shadowrocket 配置维护者的 DNS 说明](https://github.com/LOWERTOP/Shadowrocket#修改dns)。

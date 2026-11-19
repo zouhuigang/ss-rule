@@ -8,7 +8,7 @@
 
 IP125 主站和探测接口共用 Claude 住宅出口，接口清单、更新方法及暂不启用的自动核验方案见 [IP125 住宅出口分流与检测说明](docs/ip125-claude-routing.md)。
 
-Shadowrocket 的客户端 DNS 优先使用 Cloudflare `1.1.1.1`，备用为 Google `8.8.8.8`，两者均使用 DoH。导入完整 `ss.conf` 后，可按说明检查客户端和住宅节点实际使用的解析器。见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
+Shadowrocket 的默认 DNS 使用 Cloudflare `1.1.1.1`，备用为 Google `8.8.8.8`。飞书、百度等命中直连域名规则的查询使用阿里或腾讯的加密 DNS。导入完整 `ss.conf` 后，可按说明检查实际使用的解析器。见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
 
 上一次启用全局强制本地解析后的故障见 [2026 年 11 月 11 日 DNS 故障与回退记录](docs/dns-rollback-2026-11-11.md)。
 

@@ -2,8 +2,6 @@
 
 记录日期：2026-11-11。新的 DNS 策略上线后，用户反馈“都不能使用了”，并明确指出启用 `always-ip-address = true` 后有问题。按用户要求，已通过提交 [`b2fe963`](https://github.com/zouhuigang/ss-rule/commit/b2fe963) 恢复调整前的 DNS 策略，并推送至远程 `main`。客户端恢复情况待更新配置后确认。
 
-当前 DNS 设置和复测步骤见 [IPPure DNS 检测与分流配置](ippure-dns-routing.md)。
-
 ## 变更经过
 
 以下提交时间使用 America/New_York 时区（当日 UTC−05:00），不是客户端故障开始或恢复时间。
@@ -49,9 +47,9 @@ dns-direct-system = true
 
 住宅分组保持手动选择指定住宅节点，未添加普通代理、`PROXY`、`DIRECT` 或机场节点作为候选、嵌套出口或兜底。具体约束见[住宅节点策略约定](residential-policy.md)。
 
-## 当时的客户端应用和复查
+## 客户端应用和复查
 
-1. 备份客户端当前配置，再导入 [回退版本的 `ss.conf`](https://github.com/zouhuigang/ss-rule/blob/b2fe963/ss.conf)，以应用 `[General]` 中的 DNS 设置。
+1. 备份客户端当前配置，再更新完整 [`ss.conf`](../ss.conf)。只更新 Claude 等远程规则集不会撤销 `[General]` 中的 DNS 设置。
 2. 核对主 DNS、备用 DNS 和 `dns-direct-system` 与上方一致；移除本次新增的 `direct-dns-server`、`proxy-dns-server` 及 `always-ip-address = true`。若客户端另设了强制本地解析覆盖项，也需关闭。
 3. 全局路由使用“配置”，首页选择普通节点；Claude、ChatGPT、住宅IP 分组各自手动选择实际存在的指定住宅节点。
 4. 手动重新连接，分别检查国内网站、普通代理网站、Claude 和 ChatGPT 的访问及登录；结合连接日志确认住宅服务仍使用指定住宅出口。
@@ -66,8 +64,8 @@ dns-direct-system = true
 维护时可在仓库根目录复核：
 
 ```sh
-# 无输出表示回退时的 ss.conf 与调整前的基线内容一致
-git diff 915f8b1 b2fe963 -- ss.conf
+# 无输出表示当前 ss.conf 与回退前的基线内容一致
+git diff 915f8b1 HEAD -- ss.conf
 
 # 无输出表示回退提交没有改动分流清单和 Quantumult X 配置
 git diff e9dfe5d b2fe963 -- rules/ quantumultx.conf

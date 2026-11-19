@@ -8,9 +8,9 @@
 
 IP125 主站和探测接口共用 Claude 住宅出口，接口清单、更新方法及暂不启用的自动核验方案见 [IP125 住宅出口分流与检测说明](docs/ip125-claude-routing.md)。
 
-Shadowrocket 的默认 DNS 使用 Cloudflare `1.1.1.1`，备用为 Google `8.8.8.8`。飞书、百度等命中直连域名规则的查询使用阿里或腾讯的加密 DNS。导入完整 `ss.conf` 后，可按说明检查实际使用的解析器。见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
+Shadowrocket 已恢复本次 DNS 调整前的策略：阿里 / 腾讯 DNS 为主，境外 DoH 备用，直连域名允许系统 DNS；撤销强制本地解析。IPPure 随机探测域名仍归入 Claude 分组，检测原理及回退说明见 [IPPure DNS 检测与分流配置](docs/ippure-dns-routing.md)。
 
-上一次启用全局强制本地解析后的故障见 [2026 年 11 月 11 日 DNS 故障与回退记录](docs/dns-rollback-2026-11-11.md)。
+本次故障反馈、回退提交、配置差异和客户端复查步骤见 [2026 年 11 月 11 日 DNS 故障与回退记录](docs/dns-rollback-2026-11-11.md)。
 
 ## 目录结构
 
@@ -113,7 +113,7 @@ static = Max, proxy
 | `[Proxy Group]` select / url-test | `[policy]` static / url-latency-benchmark |
 | `RULE-SET` 远程规则 | `[filter_remote]` 引用 |
 | `[Host]` `server:system` / `always-real-ip` | `[general]` `dns_exclusion_list` |
-| `[General]` `dns-server = https://...`（DoH） | `[dns]` `doh-server`，可通过 `prefer-doh3` 优先使用 HTTP/3 |
+| `dns-server = h3://...`（DoH3） | `[dns]` `prefer-doh3` + `doh-server` |
 | `tun-excluded-routes` | `[general]` `excluded_routes` |
 | `udp-policy-not-supported-behaviour` | `[general]` `fallback_udp_policy` |
 | `PROCESS-NAME` 规则 | 不支持（本身在 iOS 上也无效），Tailscale 靠 CGNAT 网段 IP 规则直连 |

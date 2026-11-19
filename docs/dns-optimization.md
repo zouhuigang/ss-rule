@@ -1,6 +1,6 @@
 # DNS 解析优化记录
 
-> 本文记录旧版国内 DNS 策略及当时的日志。当前 `ss.conf` 的设置和复查步骤见 [IPPure DNS 检测与分流配置](ippure-dns-routing.md)。
+> 2026-11-11，因用户反馈新的 DNS 策略及 `always-ip-address = true` 导致服务不可用，已恢复调整前的 DNS 配置。本文所述的国内主 DNS、境外备用 DNS、`dns-direct-system = true` 再次适用于当前 `ss.conf`；回退范围及检测限制见 [IPPure DNS 检测与分流配置](ippure-dns-routing.md)。
 
 基于真实访问日志（约 50 秒采样窗口，702 行）对 `ss.conf` 的 DNS 配置做的第二轮优化。
 
